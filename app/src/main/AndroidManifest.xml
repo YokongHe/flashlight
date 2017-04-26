@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tcl.hawk.myflashlight"
+    android:installLocation="internalOnly"
+    >
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.any"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.FLASHLIGHT"
+        android:permissionGroup="android.permission-group.HARDWARE_CONTROLS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <permission
+        android:name="com.surpax.ledflashlight.panel.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.surpax.ledflashlight.panel.permission.C2D_MESSAGE" />
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+    <application
+        android:name="com.surpax.ledflashlight.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name">
+        <activity
+            android:name="com.surpax.ledflashlight.FlashlightActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|touchscreen"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.surpax.ledflashlight.HoneyCombActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|touchscreen"
+            android:excludeFromRecents="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:taskAffinity=""
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.surpax.ledflashlight.HoneyCombInnerActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|touchscreen"
+            android:excludeFromRecents="true"
+            android:label="@string/app_name"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <!--<activity-->
+        <!--android:name="com.surpax.ledflashlight.RateAlertActivity"-->
+        <!--android:configChanges="keyboard|keyboardHidden|orientation|touchscreen"-->
+        <!--android:excludeFromRecents="true"-->
+        <!--android:launchMode="singleTask"-->
+        <!--android:noHistory="true"-->
+        <!--android:screenOrientation="portrait"-->
+        <!--android:taskAffinity=""-->
+        <!--android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />-->
+
+        <receiver
+            android:name="com.surpax.ledflashlight.PanelWidget"
+            android:exported="true"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/widget_app_name_small">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/panel_provider" />
+        </receiver>
+        <receiver
+            android:name="com.surpax.ledflashlight.StartLightReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="INTELLECTUAL_START_LIGHT_ACTION" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.surpax.ledflashlight.PanelWidgetLarge"
+            android:exported="true"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/widget_app_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/panel_provider_large" />
+        </receiver>
+        <receiver
+            android:name="com.surpax.ledflashlight.StartLightReceiverLarge"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="INTELLECTUAL_START_LIGHT_LARGE_ACTION" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.surpax.ledflashlight.RestoreWidgetReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.surpax.action.RESTORE_WIDGET" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.ihs.app.push.impl.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.gcm.intent.RETRY" />
+
+                <category android:name="com.surpax.ledflashlight.panel" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.ihs.app.alerts.impl.AlertActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:taskAffinity=""
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    </application>
+</manifest>

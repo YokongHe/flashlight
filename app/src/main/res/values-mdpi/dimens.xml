@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="ad_title_top_margin">20.0dip</dimen>
+    <dimen name="ad_title_text_size">16.0sp</dimen>
+    <dimen name="ad_image_top_margin">5.0dip</dimen>
+    <dimen name="ad_button_top_margin">6.0dip</dimen>
+    <dimen name="info_max_wide">100.0dip</dimen>
+</resources>

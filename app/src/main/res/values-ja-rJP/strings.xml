@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name"> 懐中電灯</string>
+    <string name="Checkbox_start">LED スタート時にオン</string>
+    <string name="Checkbox_quit">LED 終了時にオン</string>
+    <string name="Checkbox_sound">サウンドをオン</string>
+    <string name="MailtoUs">不具合を報告</string>
+    <string name="subdescription">IもしもLED Cam照明が機能しない場合、ここにクリックすると不具合を報告できますので弊社で調査します。</string>
+    <string name="Setting">設定</string>
+    <string name="widget_app_name_small">  小懐中電灯</string>
+    <string name="widget_app_name">  大懐中電灯</string>
+    <string name="email_title">不具合を報告</string>
+    <string name="sending_tip">sending ........</string>
+    <string name="problem_tip">不具合内容</string>
+    <string name="camera_tip">貴方のLEDは他のアプリで使用中です。代わりにスクリーンを最大輝度で点灯します。</string>
+    <string name="alert_title">Android Marketでレーティングをして下さい</string>
+    <string name="alert_tip">もしもこのアプリを気に入って頂けたら、Android Marketでレーティングをして頂けませんでしょうか？５星のレーティングを頂ければ、我々はもっと頑張って新機能を充実させたいと思っております。ありがとうございます！</string>
+    <string name="go_now">レート</string>
+    <string name="go_never">必要ありません</string>
+    <string name="go_later">後で通知</string>
+    <string name="lcd_tips">貴デバイスのハードウェア又はOSの制限によりLED Cam照明が使えません。代わりにスクリーンを最高輝度に点灯させます。</string>
+    <string name="colorled_packagename">com.ihandysoft.flashlight.led.free</string>
+    <string name="colorled_activityname">com.ihandysoft.flashlight.led.free.FlashlightActivity</string>
+    <string name="panelled_packagename">com.surpax.ledflashlight.panel</string>
+    <string name="panelled_activityname">com.surpax.ledflashlight.FlashlightActivity</string>
+    <string name="buttonled_packagename">com.iphonease.ledflashlight.button</string>
+    <string name="buttonled_activityname">com.iphonease.ledflashlight.button.FlashlightActivity</string>
+    <string name="washerled_packagename">com.intellectualflame.ledflashlight.washer</string>
+    <string name="washerled_activityname">com.intellectualflame.ledflashlight.washer.FlashlightActivity</string>
+    <string name="colorled_description">Colorful ,textured or even customized themes</string>
+    <string name="colorled_description_480">Colorful or even customized themes</string>
+    <string name="panelled_description">Most realistic as if you are using a REAL flashlight</string>
+    <string name="buttonled_description">Instant ON/OFF with a simple push button</string>
+    <string name="washerled_description">Slick metal design with gorgeous lights</string>
+    <string name="dawnload">Free Download</string>
+    <string name="tips_message">Download new theme flashlight on the play market?</string>
+    <string name="widget_name">Quickly Open</string>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name"> Linterna</string>
+    <string name="Checkbox_start">LED se ilumina al iniciar</string>
+    <string name="Checkbox_quit">LED se ilumina al abandonar</string>
+    <string name="Checkbox_sound">Habilitar sonido</string>
+    <string name="MailtoUs">Informe de Problemas</string>
+    <string name="subdescription">Si su LED cam no funciona correctamente, haga clic aquí para informar de los problemas y lo investigaremos.</string>
+    <string name="Setting">Ajustes</string>
+    <string name="widget_app_name_small">  Linterna-Pequeña</string>
+    <string name="widget_app_name">  Linterna－Grande</string>
+    <string name="email_title">Informe de Problemas</string>
+    <string name="sending_tip">sending ........</string>
+    <string name="problem_tip">Descripción del problema:</string>
+    <string name="camera_tip">Tu LED está siendo utilizado por otra aplicación. Vamos a iluminar su pantalla al nivel máximo en su lugar.</string>
+    <string name="alert_title">Puntúalo en la android market</string>
+    <string name="alert_tip">Si te gusta esta aplicación, te importaría dedicar un momento a puntuarla en la android market? Vuestras principales críticas nos permitirán seguir trabajando duro para vosotros en nuevas características útiles. ¡Gracias!</string>
+    <string name="go_now">Clasifica</string>
+    <string name="go_never">No, Gracias</string>
+    <string name="go_later">Recuérdamelo más tarde</string>
+    <string name="lcd_tips">Debido a las limitaciones de su hardware o Sistema Operativo, su dispositivo no es compatible con la luz LED Cam. Vamos a iluminar su pantalla al nivel máximo en su lugar.</string>
+    <string name="colorled_packagename">com.ihandysoft.flashlight.led.free</string>
+    <string name="colorled_activityname">com.ihandysoft.flashlight.led.free.FlashlightActivity</string>
+    <string name="panelled_packagename">com.surpax.ledflashlight.panel</string>
+    <string name="panelled_activityname">com.surpax.ledflashlight.FlashlightActivity</string>
+    <string name="buttonled_packagename">com.iphonease.ledflashlight.button</string>
+    <string name="buttonled_activityname">com.iphonease.ledflashlight.button.FlashlightActivity</string>
+    <string name="washerled_packagename">com.intellectualflame.ledflashlight.washer</string>
+    <string name="washerled_activityname">com.intellectualflame.ledflashlight.washer.FlashlightActivity</string>
+    <string name="colorled_description">Colorful ,textured or even customized themes</string>
+    <string name="colorled_description_480">Colorful or even customized themes</string>
+    <string name="panelled_description">Most realistic as if you are using a REAL flashlight</string>
+    <string name="buttonled_description">Instant ON/OFF with a simple push button</string>
+    <string name="washerled_description">Slick metal design with gorgeous lights</string>
+    <string name="dawnload">Free Download</string>
+    <string name="tips_message">Download new theme flashlight on the play market?</string>
+    <string name="widget_name">Quickly Open</string>
+</resources>

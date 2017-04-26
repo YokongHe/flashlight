@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name"> Lampe-torche</string>
+    <string name="Checkbox_start">Allumer la DEL lors du démarrage</string>
+    <string name="Checkbox_quit">"Allumer la DEL lors de l'arrêt"</string>
+    <string name="Checkbox_sound">Activer le son</string>
+    <string name="MailtoUs">"Rapport d'erreurs"</string>
+    <string name="subdescription">"Si votre éclairage de Caméra DEL ne fonctionne pas correctement, cliquez ici pour envoyer un rapport d'erreur et nous l'analyserons."</string>
+    <string name="Setting">Réglage</string>
+    <string name="widget_app_name_small">  Lampe-torche-Petite</string>
+    <string name="widget_app_name">  Lampe-torche-Grande</string>
+    <string name="email_title">"Rapport d'erreurs"</string>
+    <string name="sending_tip">sending ........</string>
+    <string name="problem_tip">Description du problème :</string>
+    <string name="camera_tip">Une autre application est en train dutiliser votre DEL. Cest votre écran qui sera allumé à luminosité maximum à la place.</string>
+    <string name="alert_title">"Evaluez cette application sur l'android market"</string>
+    <string name="alert_tip">"Si vous aimez cette application, auriez vous l'obligeance de l'évaluer sur l'android market? Vos cinq étoiles nous encourageront à continuer à travailler à votre satisfaction et à de nouvelles fonctions utiles."</string>
+    <string name="go_now">Taux</string>
+    <string name="go_never">Non merci</string>
+    <string name="go_later">Me rappeler plus tard</string>
+    <string name="lcd_tips">"En raison des limitations de votre materiel ou de votre système d'exploitation, votre appareil n'est pas compatible avec l'éclairage de la caméra DEL . C'est pourquoi, c'est votre écran qui s'allumuera à son niveau maximum."</string>
+    <string name="colorled_packagename">com.ihandysoft.flashlight.led.free</string>
+    <string name="colorled_activityname">com.ihandysoft.flashlight.led.free.FlashlightActivity</string>
+    <string name="panelled_packagename">com.surpax.ledflashlight.panel</string>
+    <string name="panelled_activityname">com.surpax.ledflashlight.FlashlightActivity</string>
+    <string name="buttonled_packagename">com.iphonease.ledflashlight.button</string>
+    <string name="buttonled_activityname">com.iphonease.ledflashlight.button.FlashlightActivity</string>
+    <string name="washerled_packagename">com.intellectualflame.ledflashlight.washer</string>
+    <string name="washerled_activityname">com.intellectualflame.ledflashlight.washer.FlashlightActivity</string>
+    <string name="colorled_description">Colorful ,textured or even customized themes</string>
+    <string name="colorled_description_480">Colorful or even customized themes</string>
+    <string name="panelled_description">Most realistic as if you are using a REAL flashlight</string>
+    <string name="buttonled_description">Instant ON/OFF with a simple push button</string>
+    <string name="washerled_description">Slick metal design with gorgeous lights</string>
+    <string name="dawnload">Free Download</string>
+    <string name="tips_message">Download new theme flashlight on the play market?</string>
+    <string name="widget_name">Quickly Open</string>
+</resources>

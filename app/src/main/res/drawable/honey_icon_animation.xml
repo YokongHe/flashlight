@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="1800" android:drawable="@drawable/hc_button_rocket_01" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_02" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_03" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_04" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_05" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_06" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_07" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_08" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_09" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_10" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_11" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_12" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_13" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_14" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_15" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_16" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_17" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_18" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_19" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_20" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_21" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_22" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_23" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_24" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_25" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_26" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_27" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_28" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_29" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_30" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_31" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_32" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_33" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_34" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_35" />
+    <item android:duration="500" android:drawable="@drawable/hc_button_rocket_36" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_37" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_38" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_39" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_40" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_41" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_42" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_43" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_44" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_45" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_46" />
+    <item android:duration="42" android:drawable="@drawable/hc_button_rocket_47" />
+    <item android:duration="2814" android:drawable="@drawable/hc_button_rocket_48" />
+</animation-list>

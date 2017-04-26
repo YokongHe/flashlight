@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/hc_ad_mask">
+
+    <ImageView
+        android:id="@+id/white_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/hc_ad_bg"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:id="@+id/ad_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/white_bg"
+        android:layout_alignRight="@id/white_bg"
+        android:layout_alignTop="@id/white_bg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/ad_title_top_margin"
+        android:gravity="center"
+        android:maxLines="2"
+        android:paddingLeft="@dimen/ad_title_padding_left"
+        android:paddingRight="@dimen/ad_title_padding_right"
+        android:textColor="#ff454545"
+        android:textSize="@dimen/ad_title_text_size"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/ad_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/white_bg"
+        android:layout_alignRight="@id/white_bg"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:paddingLeft="@dimen/ad_title_padding_left"
+        android:paddingRight="@dimen/ad_title_padding_right"
+        android:textColor="#ff8a8a8a"
+        android:textSize="16.0sp"
+        android:typeface="sans" />
+
+    <Button
+        android:id="@+id/ad_download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/white_bg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/ad_button_bottom_margin"
+        android:background="@drawable/honey_button_selector"
+        android:contentDescription="@string/app_name"
+        android:textColor="@android:color/white"
+        android:textSize="18.0sp"
+        android:typeface="sans" />
+</RelativeLayout>
