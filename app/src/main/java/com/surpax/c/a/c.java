@@ -12,13 +12,11 @@ public final class c {
       int var1 = VERSION.SDK_INT;
       this.c = false;
       com.surpax.a.a.D = false;
-      if(var1 >= 7) {
-      }
 
       com.surpax.a.a.B = true;
       com.surpax.a.a.C = true;
       this.b = true;
-      this.a = new com.surpax.c.a.b();
+      this.a = new b();
       this.a.a();
    }
 

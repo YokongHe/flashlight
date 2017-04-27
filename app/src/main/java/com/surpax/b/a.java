@@ -21,7 +21,7 @@ public final class a {
 
    public static com.surpax.b.a a() {
       if(e == null) {
-         e = new com.surpax.b.a();
+         e = new a();
       }
 
       return e;
@@ -82,7 +82,9 @@ public final class a {
          if(((Boolean)this.g.get("CanShowHoneyComb")).booleanValue()) {
             int var1 = (new Random()).nextInt(100);
             int var2 = ((Integer)this.g.get("Probability")).intValue();
-            int var3 = ((Integer)this.g.get("UseCount")).intValue();
+            if(var1 <= var2) {
+               return true;
+            }
          }
 
          return false;

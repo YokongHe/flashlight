@@ -12,7 +12,7 @@ public class StartLightReceiverLarge extends BroadcastReceiver {
    private RemoteViews b;
    private AppWidgetManager c;
    private int[] d;
-   private com.surpax.ledflashlight.b e = new com.surpax.ledflashlight.b(this, (byte)0);
+   private com.surpax.ledflashlight.b e = new b(this, (byte)0);
    private Handler f = new Handler();
 
    public void onReceive(Context param1, Intent param2) {

@@ -1,7 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
 package com.surpax.ledflashlight;
 
 import android.annotation.SuppressLint;
@@ -16,25 +12,26 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapFactory.Options;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Build.VERSION;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
+import android.widget.TextView;
 
-import com.surpax.d.a;
 import com.tcl.hawk.myflashlight.R;
 
+import static com.surpax.a.a.A;
 
 public class FlashlightActivity extends Activity {
    private static FlashlightActivity p;
@@ -46,6 +43,8 @@ public class FlashlightActivity extends Activity {
    public SurfaceView f;
    public float g;
    public float h;
+   private TextView i;
+   private ImageButton j;
    private ImageButton k;
    private boolean l = false;
    private boolean m = false;
@@ -55,11 +54,8 @@ public class FlashlightActivity extends Activity {
    private com.surpax.c.a.c s;
    private boolean t;
    private View u;
-   private a v;
+   private com.surpax.d.a v;
    private WakeLock w;
-
-   public FlashlightActivity() {
-   }
 
    private int a(String var1) {
       int var2 = -1;
@@ -75,12 +71,16 @@ public class FlashlightActivity extends Activity {
       return p;
    }
 
+   // $FF: synthetic method
+   static void a(FlashlightActivity var0, AlertDialog var1) {
+      var0.n = null;
+   }
+
    private void a(String var1, int var2) {
       Editor var3 = this.getSharedPreferences(var1, 0).edit();
       var3.putInt(var1, var2);
       var3.commit();
    }
-
 
    public final void a(int var1) {
       if(this.q != null) {
@@ -97,6 +97,11 @@ public class FlashlightActivity extends Activity {
          }
 
          this.v.setVisibility(View.VISIBLE);
+         if(this.j != null && this.l) {
+            this.j.setVisibility(View.VISIBLE);
+            this.l = false;
+         }
+
          this.k.setVisibility(View.VISIBLE);
       }
 
@@ -109,6 +114,30 @@ public class FlashlightActivity extends Activity {
    public final void c() {
       if(com.surpax.b.a.a().g() && !com.surpax.b.a.c) {
          this.a = true;
+         this.i.setText(com.surpax.b.a.a().f());
+         switch(com.surpax.b.a.a().b()) {
+         case 0:
+            this.j.setImageResource(R.drawable.honey_icon_selector);
+            break;
+         case 1:
+            this.j.setImageResource(R.drawable.honey_icon_selector_1);
+            break;
+         case 2:
+            this.j.setImageResource(R.drawable.honey_icon_animation);
+         }
+
+         Drawable var4 = this.j.getDrawable();
+         LayoutParams var6 = new LayoutParams(var4.getIntrinsicWidth(), var4.getIntrinsicHeight());
+         var6.leftMargin = (int)this.r.N;
+         var6.topMargin = (int)this.r.O - 5;
+         this.j.setLayoutParams(var6);
+         this.j.setVisibility(View.VISIBLE);
+         this.j.bringToFront();
+         this.j.postInvalidate();
+      } else {
+         this.a = false;
+         this.j.setVisibility(View.INVISIBLE);
+         this.i.setVisibility(View.INVISIBLE);
       }
    }
 
@@ -142,18 +171,52 @@ public class FlashlightActivity extends Activity {
    }
 
    public final void i() {
+      if(this.j != null && this.j.getVisibility() == View.VISIBLE) {
+         this.j.setVisibility(View.INVISIBLE);
+         this.l = true;
+      }
 
    }
 
+   public final View j() {
+      return this.findViewById(R.id.root_view);
+   }
+
+   public final boolean k() {
+      boolean var1;
+      if(this.t) {
+         var1 = false;
+      } else if("samsung".equalsIgnoreCase(Build.MANUFACTURER) && "SPH-M820-BST".equals(Build.MODEL)) {
+         var1 = false;
+      } else if("samsung".equalsIgnoreCase(Build.MANUFACTURER) && "SGH-T679".equals(Build.MODEL)) {
+         var1 = false;
+      } else if("samsung".equalsIgnoreCase(Build.MANUFACTURER) && "SPH-D710".equals(Build.MODEL)) {
+         var1 = false;
+      } else if("ZTE".equalsIgnoreCase(Build.MANUFACTURER) && "N860".equals(Build.MODEL)) {
+         var1 = false;
+      } else if("ZTE".equalsIgnoreCase(Build.MANUFACTURER) && "ZTE-SKATE".equals(Build.MODEL)) {
+         var1 = false;
+      } else if("LGE".equalsIgnoreCase(Build.MANUFACTURER) && "LG-LS855".equals(Build.MODEL)) {
+         var1 = false;
+      } else if("Motorola".equalsIgnoreCase(Build.MANUFACTURER) && "A854".equals(Build.MODEL)) {
+         var1 = false;
+      } else {
+         var1 = true;
+      }
+
+      return var1 && this.c;
+   }
 
    public final void l() {
       try {
+         if(this.i.getVisibility() == View.VISIBLE) {
+            this.i.setVisibility(View.INVISIBLE);
+         }
 
       } catch (Exception var2) {
          var2.printStackTrace();
       }
    }
-
 
    public void onConfigurationChanged(Configuration var1) {
       super.onConfigurationChanged(var1);
@@ -271,33 +334,33 @@ public class FlashlightActivity extends Activity {
             }
 
             switch(var7) {
-               case 0:
-                  Log.d("Surpax App", "invoke load320to480");
-                  this.r.d(this.getResources(), var12);
-                  break;
-               case 1:
-                  Log.d("Surpax App", "invoke 480to640");
-                  this.r.c(this.getResources(), var12);
-                  break;
-               case 2:
-                  Log.d("Surpax App", "invoke load480t0800");
-                  this.r.b(this.getResources(), var12);
-                  break;
-               case 3:
-                  Log.d("Surpax App", "invoke load480to854");
-                  this.r.a(this.getResources(), var12);
-                  break;
-               case 4:
-                  Log.d("Surpax App", "invoke load720to1280");
-                  this.r.e(this.getResources(), var12);
-                  break;
-               case 5:
-                  Log.d("Surpax App", "invoke load720to1184");
-                  this.r.f(this.getResources(), var12);
-                  break;
-               default:
-                  Log.d("Surpax App", "default invoke load480t0800");
-                  this.r.b(this.getResources(), var12);
+            case 0:
+               Log.d("Surpax App", "invoke load320to480");
+               this.r.d(this.getResources(), var12);
+               break;
+            case 1:
+               Log.d("Surpax App", "invoke 480to640");
+               this.r.c(this.getResources(), var12);
+               break;
+            case 2:
+               Log.d("Surpax App", "invoke load480t0800");
+               this.r.b(this.getResources(), var12);
+               break;
+            case 3:
+               Log.d("Surpax App", "invoke load480to854");
+               this.r.a(this.getResources(), var12);
+               break;
+            case 4:
+               Log.d("Surpax App", "invoke load720to1280");
+               this.r.e(this.getResources(), var12);
+               break;
+            case 5:
+               Log.d("Surpax App", "invoke load720to1184");
+               this.r.f(this.getResources(), var12);
+               break;
+            default:
+               Log.d("Surpax App", "default invoke load480t0800");
+               this.r.b(this.getResources(), var12);
             }
          }
 
@@ -317,6 +380,22 @@ public class FlashlightActivity extends Activity {
       var13.v = (float)(var7 - (int)((float)(var9.densityDpi * 370 / 480) * 1.0F) - 15);
       var13.N = (float)var6 - var13.u - (float)var8;
       var13.O = var13.v;
+      this.i = (TextView)this.findViewById(R.id.honeycomb_info);
+      this.i.setVisibility(View.INVISIBLE);
+      this.j = (ImageButton)this.findViewById(R.id.bt_honeycomb);
+      this.j.setVisibility(View.INVISIBLE);
+      this.j.setSoundEffectsEnabled(false);
+      this.j.setOnClickListener(new View.OnClickListener() {
+         @SuppressLint({"NewApi"})
+         public final void onClick(View var1) {
+            FlashlightActivity.this.i.setVisibility(View.INVISIBLE);
+            Drawable var2 = FlashlightActivity.this.j.getDrawable();
+            if(var2 instanceof AnimationDrawable) {
+               ((AnimationDrawable)var2).stop();
+               ((AnimationDrawable)var2).selectDrawable(0);
+            }
+         }
+      });
       this.k = (ImageButton)this.findViewById(R.id.bt_sound);
       if(com.surpax.a.a.h == 1) {
          this.k.setBackgroundResource(R.drawable.sound_icon_enable_selector);
@@ -325,7 +404,7 @@ public class FlashlightActivity extends Activity {
       }
 
       this.k.setSoundEffectsEnabled(false);
-      this.k.setOnClickListener(new android.view.View.OnClickListener() {
+      this.k.setOnClickListener(new View.OnClickListener() {
          public final void onClick(View var1) {
             if(com.surpax.a.a.h == 1) {
                com.surpax.a.a.h = 0;
@@ -352,7 +431,6 @@ public class FlashlightActivity extends Activity {
 
    protected void onDestroy() {
       super.onDestroy();
-
       this.d = true;
       this.v.setVisibility(View.INVISIBLE);
       this.v.f();
@@ -453,7 +531,7 @@ public class FlashlightActivity extends Activity {
       this.a("surpax_sound_state", com.surpax.a.a.h);
       this.a("surpax_light_state_exit", com.surpax.a.a.k);
       com.surpax.a.a.z = 1;
-      this.a(com.surpax.a.a.A, com.surpax.a.a.z);
+      this.a(A, com.surpax.a.a.z);
       super.onPause();
    }
 
@@ -465,126 +543,13 @@ public class FlashlightActivity extends Activity {
 
    @TargetApi(11)
    protected void onResume() {
-      int var1 = this.a("surpax_lighting_frequency");
-      com.surpax.a.a.g = var1;
-      if(var1 == -1) {
-         com.surpax.a.a.g = 0;
-      }
-
-      com.surpax.a.a.j = this.a("surpax_light_state");
-      if(-1 == com.surpax.a.a.j) {
-         com.surpax.a.a.j = 0;
-         com.surpax.a.a.u = true;
-      }
-
-      com.surpax.a.a.i = com.surpax.a.a.j;
-      var1 = this.a("surpax_sound_state");
-      com.surpax.a.a.h = var1;
-      if(var1 == -1) {
-         com.surpax.a.a.h = 1;
-      }
-
-      var1 = this.a("surpax_light_state_exit");
-      com.surpax.a.a.k = var1;
-      if(var1 == -1) {
-         com.surpax.a.a.k = 1;
-      }
-
-      com.surpax.a.a.z = this.a(com.surpax.a.a.A);
-      com.surpax.a.a.r = false;
-      Context var3 = this.getApplicationContext();
-      if(this.v == null) {
-         this.v = new a(var3);
-         ((RelativeLayout)this.findViewById(R.id.root_view)).addView(this.v);
-      }
-
-      this.v.a();
       super.onResume();
-      this.v.setVisibility(View.VISIBLE);
-      RelativeLayout var6 = (RelativeLayout)this.findViewById(R.id.surfaceHolder);
-      LayoutParams var4 = new LayoutParams(1, 1);
-      this.f = null;
-      this.f = new SurfaceView(this);
-      var6.removeAllViews();
-      var6.addView(this.f, var4);
-      this.s = new com.surpax.c.a.c();
-      this.s.a();
-      if(com.surpax.a.a.H != 0) {
-         com.surpax.a.a.i = 1;
-         if(com.surpax.a.a.h == 1) {
-            this.a(1);
-         }
-      }
-
-      if(this.m && com.surpax.a.a.l) {
-         com.surpax.a.a.i = 1;
-      }
-
-      Intent var7 = this.getIntent();
-      if(var7 != null) {
-         boolean var2 = var7.getBooleanExtra("intent.extra.led.on", false);
-         if(var2) {
-            com.surpax.a.a.i = 1;
-         }
-
-         (new StringBuilder("open is ")).append(var2).toString();
-         var7.putExtra("intent.extra.led.on", false);
-      }
-
-      this.t = this.s.c();
-      if(this.t) {
-         com.surpax.a.a.i = 0;
-      }
-
-      if(this.t) {
-         this.f.setVisibility(View.INVISIBLE);
-         var6 = (RelativeLayout)this.findViewById(R.id.root_view);
-         var4 = new LayoutParams(-1, -1);
-         var4.addRule(2);
-         View var5 = ((LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.halftrans, (ViewGroup)null);
-         var6.addView(var5, var4);
-         this.u = var5.findViewById(R.id.cover_view);
-         this.u.setVisibility(View.INVISIBLE);
-      }
-
-//        if(com.surpax.a.a.r) {
-//            this.b(this.getResources().getString(2131099692));
-//        }
-
-//        if(-1 == com.surpax.a.a.z && com.surpax.a.a.B) {
-//            com.surpax.a.a.z = 1;
-//            com.ihs.app.a.b.a("No_LED_Alert_Viewed");
-//            this.b(this.getResources().getString(2131099698));
-//        }
-
-      if(this.v != null && !this.s.c()) {
-         this.v.g();
-      }
-
    }
 
    protected void onStart() {
       super.onStart();
       this.w = ((PowerManager)this.getSystemService(Context.POWER_SERVICE)).newWakeLock(268435457, this.getClass().getCanonicalName());
       this.w.acquire();
-//      Map var1 = com.ihs.a.b.b.d();
-//      com.surpax.b.a.a().a(var1);
-//      //TODO
-//      (new Thread() {
-//         public final void run() {
-//            FlashlightActivity.p.m();
-//            if(com.ihs.app.framework.a2.b.a().d() != null) {
-//               com.ihs.app.framework.a2.b.a().d().runOnUiThread(new Runnable() {
-//                  public final void run() {
-//                     FlashlightActivity.p.c();
-//                  }
-//               });
-//            }
-//
-//            super.run();
-//         }
-//      }).start();
-
    }
 
    protected void onStop() {
@@ -598,16 +563,16 @@ public class FlashlightActivity extends Activity {
 
    public boolean onTouchEvent(MotionEvent var1) {
       switch(var1.getAction()) {
-         case 0:
-            try {
-               if(this.t && this.v != null && this.v.c()) {
-                  this.v.d();
-               }
-            } catch (Exception var3) {
-               var3.printStackTrace();
+      case 0:
+         try {
+            if(this.t && this.v != null && this.v.c()) {
+               this.v.d();
             }
-         default:
-            return super.onTouchEvent(var1);
+         } catch (Exception var3) {
+            var3.printStackTrace();
+         }
+      default:
+         return super.onTouchEvent(var1);
       }
    }
 }

@@ -697,6 +697,7 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
       switch(var1.getAction()) {
       case 0:
          com.surpax.b.a.b = true;
+         FlashlightActivity.a().l();
          return true;
       case 1:
          if(this.i) {

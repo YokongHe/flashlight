@@ -8,14 +8,13 @@ import android.content.Intent;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.RemoteViews;
-import com.surpax.ledflashlight.PanelWidget;
 
 public class StartLightReceiver extends BroadcastReceiver {
    public Context a;
    private RemoteViews b;
    private AppWidgetManager c;
    private int[] d;
-   private com.surpax.ledflashlight.a e = new com.surpax.ledflashlight.a(this, (byte)0);
+   private com.surpax.ledflashlight.a e = new a(this, (byte)0);
    private Handler f = new Handler();
 
    public void onReceive(Context var1, Intent var2) {

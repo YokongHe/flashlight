@@ -9,7 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
-import com.surpax.ledflashlight.StartLightReceiver;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class PanelWidget extends AppWidgetProvider {
 
    private static void a(Context var0, AppWidgetManager var1, int var2) {
       Intent var3 = new Intent(var0, StartLightReceiver.class);
-      PendingIntent var5 = PendingIntent.getBroadcast(var0.getApplicationContext(), 0, var3, 134217728);
+      PendingIntent var5 = PendingIntent.getBroadcast(var0.getApplicationContext(), 0, var3, PendingIntent.FLAG_UPDATE_CURRENT);
       RemoteViews var4 = new RemoteViews(var0.getPackageName(), 2130903045);
       var4.setOnClickPendingIntent(2131492902, var5);
       var4.setOnClickPendingIntent(2131492901, var5);
@@ -34,15 +34,15 @@ public class PanelWidget extends AppWidgetProvider {
    }
 
    public void onDeleted(Context var1, int[] var2) {
-      com.surpax.ledflashlight.c.c(var1, "HomeScreen_Small");
-      ArrayList var5 = new ArrayList(com.surpax.ledflashlight.c.a(var1, "PanelWidgetSmallIdList"));
+      c.c(var1, "HomeScreen_Small");
+      ArrayList var5 = new ArrayList(c.a(var1, "PanelWidgetSmallIdList"));
       int var4 = var2.length;
 
       for(int var3 = 0; var3 < var4; ++var3) {
          var5.remove(String.valueOf(var2[var3]));
       }
 
-      com.surpax.ledflashlight.c.a(var1, "PanelWidgetSmallIdList", (List)var5);
+      c.a(var1, "PanelWidgetSmallIdList", (List)var5);
       super.onDeleted(var1, var2);
    }
 
@@ -64,7 +64,7 @@ public class PanelWidget extends AppWidgetProvider {
          a(var1, var2, var3[var4]);
       }
 
-      List var7 = com.surpax.ledflashlight.c.a(var1, "PanelWidgetSmallIdList");
+      List var7 = c.a(var1, "PanelWidgetSmallIdList");
       ArrayList var8 = new ArrayList(var7);
       var6 = var3.length;
 
@@ -72,12 +72,12 @@ public class PanelWidget extends AppWidgetProvider {
          int var9 = var3[var4];
          if(!var7.contains(String.valueOf(var9))) {
             var8.add(String.valueOf(var9));
-            com.surpax.ledflashlight.c.b(var1, "HomeScreen_Small");
+            c.b(var1, "HomeScreen_Small");
          }
       }
 
       if(var8.size() != var7.size()) {
-         com.surpax.ledflashlight.c.a(var1, "PanelWidgetSmallIdList", (List)var8);
+         c.a(var1, "PanelWidgetSmallIdList", (List)var8);
       }
 
       super.onUpdate(var1, var2, var3);
