@@ -12,8 +12,6 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapFactory.Options;
-import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Build.VERSION;
 import android.os.Bundle;
@@ -30,7 +28,6 @@ import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
-import android.widget.TextView;
 
 import com.tcl.hawk.myflashlight.R;
 
@@ -46,8 +43,6 @@ public class FlashlightActivity extends Activity {
    public SurfaceView f;
    public float g;
    public float h;
-   private TextView i;
-   private ImageButton j;
    private ImageButton k;
    private boolean l = false;
    private boolean m = false;
@@ -100,13 +95,9 @@ public class FlashlightActivity extends Activity {
             return;
          }
 
-         this.v.setVisibility(View.VISIBLE);
-         if(this.j != null && this.l) {
-//            this.j.setVisibility(View.VISIBLE);
-//            this.l = false;
-         }
+//         this.v.setVisibility(View.VISIBLE);
 
-         this.k.setVisibility(View.VISIBLE);
+//         this.k.setVisibility(View.VISIBLE);
       }
 
    }
@@ -118,30 +109,8 @@ public class FlashlightActivity extends Activity {
    public final void c() {
       if(com.surpax.b.a.a().g() && !com.surpax.b.a.c) {
          this.a = true;
-         this.i.setText(com.surpax.b.a.a().f());
-         switch(com.surpax.b.a.a().b()) {
-         case 0:
-            this.j.setImageResource(R.drawable.honey_icon_selector);
-            break;
-         case 1:
-            this.j.setImageResource(R.drawable.honey_icon_selector_1);
-            break;
-         case 2:
-            this.j.setImageResource(R.drawable.honey_icon_animation);
-         }
-
-         Drawable var4 = this.j.getDrawable();
-         LayoutParams var6 = new LayoutParams(var4.getIntrinsicWidth(), var4.getIntrinsicHeight());
-         var6.leftMargin = (int)this.r.N;
-         var6.topMargin = (int)this.r.O - 5;
-         this.j.setLayoutParams(var6);
-         this.j.setVisibility(View.VISIBLE);
-         this.j.bringToFront();
-         this.j.postInvalidate();
       } else {
          this.a = false;
-         this.j.setVisibility(View.INVISIBLE);
-         this.i.setVisibility(View.INVISIBLE);
       }
    }
 
@@ -175,11 +144,7 @@ public class FlashlightActivity extends Activity {
    }
 
    public final void i() {
-      if(this.j != null && this.j.getVisibility() == View.VISIBLE) {
-         this.j.setVisibility(View.INVISIBLE);
          this.l = true;
-      }
-
    }
 
    public final View j() {
@@ -209,17 +174,6 @@ public class FlashlightActivity extends Activity {
       }
 
       return var1 && this.c;
-   }
-
-   public final void l() {
-      try {
-         if(this.i.getVisibility() == View.VISIBLE) {
-            this.i.setVisibility(View.INVISIBLE);
-         }
-
-      } catch (Exception var2) {
-         var2.printStackTrace();
-      }
    }
 
    public void onConfigurationChanged(Configuration var1) {
@@ -384,22 +338,6 @@ public class FlashlightActivity extends Activity {
       var13.v = (float)(var7 - (int)((float)(var9.densityDpi * 370 / 480) * 1.0F) - 15);
       var13.N = (float)var6 - var13.u - (float)var8;
       var13.O = var13.v;
-      this.i = (TextView)this.findViewById(R.id.honeycomb_info);
-      this.i.setVisibility(View.INVISIBLE);
-      this.j = (ImageButton)this.findViewById(R.id.bt_honeycomb);
-      this.j.setVisibility(View.INVISIBLE);
-      this.j.setSoundEffectsEnabled(false);
-      this.j.setOnClickListener(new View.OnClickListener() {
-         @SuppressLint({"NewApi"})
-         public final void onClick(View var1) {
-            FlashlightActivity.this.i.setVisibility(View.INVISIBLE);
-            Drawable var2 = FlashlightActivity.this.j.getDrawable();
-            if(var2 instanceof AnimationDrawable) {
-               ((AnimationDrawable)var2).stop();
-               ((AnimationDrawable)var2).selectDrawable(0);
-            }
-         }
-      });
       this.k = (ImageButton)this.findViewById(R.id.bt_sound);
       if(com.surpax.a.a.h == 1) {
          this.k.setBackgroundResource(R.drawable.sound_icon_enable_selector);
@@ -583,12 +521,8 @@ public class FlashlightActivity extends Activity {
       this.v.a();
       super.onResume();
       this.v.setVisibility(View.VISIBLE);
-      RelativeLayout var6 = (RelativeLayout)this.findViewById(R.id.surfaceHolder);
-      LayoutParams var4 = new LayoutParams(1, 1);
       this.f = null;
       this.f = new SurfaceView(this);
-      var6.removeAllViews();
-      var6.addView(this.f, var4);
       this.s = new com.surpax.c.a.c();
       this.s.a();
       if(com.surpax.a.a.H != 0) {
@@ -620,11 +554,7 @@ public class FlashlightActivity extends Activity {
 
       if(this.t) {
          this.f.setVisibility(View.INVISIBLE);
-         var6 = (RelativeLayout)this.findViewById(R.id.root_view);
-         var4 = new LayoutParams(-1, -1);
-         var4.addRule(2);
          View var5 = ((LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.halftrans, (ViewGroup)null);
-         var6.addView(var5, var4);
          this.u = var5.findViewById(R.id.cover_view);
          this.u.setVisibility(View.INVISIBLE);
       }
