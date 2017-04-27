@@ -20,7 +20,7 @@ public final class a {
    public static float d = 1.5F;
    public static float e = 1.78F;
    public static float f = 1.64F;
-   public static int g = 0;
+   public static int lightNum = 0;
    public static int h = 1;
    public static int i = -1;
    public static int j = 1;

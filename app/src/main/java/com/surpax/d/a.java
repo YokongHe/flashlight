@@ -9,17 +9,19 @@ import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.GestureDetector.OnDoubleTapListener;
 import android.view.GestureDetector.OnGestureListener;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationSet;
+
 import com.surpax.ledflashlight.FlashlightActivity;
 
 public final class a extends View implements OnDoubleTapListener, OnGestureListener, OnClickListener {
@@ -41,7 +43,7 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
    private boolean mBoolean8;
    private boolean mBoolean9;
    private boolean mBoolean10;
-   private int mInt2;
+   private int lightNum;
    private Handler mHandler;
    private boolean u;
 
@@ -61,27 +63,27 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
       this.mBoolean9 = false;
       this.mBoolean8 = false;
       this.mBoolean10 = false;
-      this.mInt2 = 0;
-      this.mFloat2 = (float)(com.surpax.a.a.o * com.surpax.a.a.g * 2);
-      this.mInt1 = com.surpax.a.a.g * 2;
+      this.lightNum = 0;
+      this.mFloat2 = (float)(com.surpax.a.a.o * com.surpax.a.a.lightNum * 2);
+      this.mInt1 = com.surpax.a.a.lightNum * 2;
       this.mFloat3 = (float)(com.surpax.a.a.o / 2);
       this.mHandler = new com.surpax.d.b() {
          public final void handleMessage(Message var1) {
             super.handleMessage(var1);
             switch(var1.what) {
             case 0:
-               FlashlightActivity.a().a(false);
-               FlashlightActivity.a().d();
+               FlashlightActivity.getFlashlightActivityInstance().a(false);
+               FlashlightActivity.getFlashlightActivityInstance().d();
                a.this.mBoolean9 = true;
                a.this.mBoolean8 = true;
                a.this.postInvalidate();
                return;
             case 1:
-               FlashlightActivity.a().e();
+               FlashlightActivity.getFlashlightActivityInstance().e();
                return;
             case 2:
-               FlashlightActivity.a().a(true);
-               FlashlightActivity.a().f();
+               FlashlightActivity.getFlashlightActivityInstance().a(true);
+               FlashlightActivity.getFlashlightActivityInstance().f();
                a.this.mBoolean8 = false;
                com.surpax.d.a.a(a.this, 0.0F);
                a.this.mBoolean9 = false;
@@ -91,12 +93,12 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
                a.this.postInvalidate();
                return;
             case 3:
-               FlashlightActivity.a().i();
+               FlashlightActivity.getFlashlightActivityInstance().i();
                com.surpax.d.a.a(a.this, true);
                return;
             case 4:
-               FlashlightActivity.a().a(true);
-               FlashlightActivity.a().f();
+               FlashlightActivity.getFlashlightActivityInstance().a(true);
+               FlashlightActivity.getFlashlightActivityInstance().f();
                a.this.mBoolean8 = false;
                com.surpax.d.a.a(a.this, 0.0F);
                a.this.mBoolean9 = false;
@@ -122,20 +124,20 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
          public final void run() {
             super.run();
 
-            while(!FlashlightActivity.a().d) {
-               if(a.this.mInt2 > 0) {
+            while(!FlashlightActivity.getFlashlightActivityInstance().lightSwitch) {
+               if(a.this.lightNum > 0) {
                   int var1;
                   com.surpax.d.a var2;
                   if(a.this.mBoolean10) {
                      var2 = a.this;
-                     var1 = var2.mInt2 - 1;
-                     var2.mInt2 = var1;
-                     com.surpax.a.a.g = 9 - var1;
+                     var1 = var2.lightNum - 1;
+                     var2.lightNum = var1;
+                     com.surpax.a.a.lightNum = 9 - var1;
                   } else {
                      var2 = a.this;
-                     var1 = var2.mInt2 - 1;
-                     var2.mInt2 = var1;
-                     com.surpax.a.a.g = var1;
+                     var1 = var2.lightNum - 1;
+                     var2.lightNum = var1;
+                     com.surpax.a.a.lightNum = var1;
                   }
 
                   a.this.postInvalidate();
@@ -173,7 +175,7 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
       var3.addAnimation(var2);
       var3.setAnimationListener(new AnimationListener() {
          public final void onAnimationEnd(Animation var1x) {
-            FlashlightActivity.a().h().setVisibility(View.INVISIBLE);
+            FlashlightActivity.getFlashlightActivityInstance().h().setVisibility(View.INVISIBLE);
             Message var2 = new Message();
             if(var1) {
                var2.what = 0;
@@ -189,12 +191,12 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
          }
 
          public final void onAnimationStart(Animation var1x) {
-            FlashlightActivity.a().h().setBackgroundColor(-1);
+            FlashlightActivity.getFlashlightActivityInstance().h().setBackgroundColor(-1);
             var0.postInvalidate();
          }
       });
-      FlashlightActivity.a().h().setVisibility(View.VISIBLE);
-      FlashlightActivity.a().h().startAnimation(var3);
+      FlashlightActivity.getFlashlightActivityInstance().h().setVisibility(View.VISIBLE);
+      FlashlightActivity.getFlashlightActivityInstance().h().startAnimation(var3);
    }
 
    // $FF: synthetic method
@@ -222,7 +224,8 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
          boolean a = false;
 
          public final void run() {
-            while(!FlashlightActivity.a().d) {
+            while(!FlashlightActivity.getFlashlightActivityInstance().lightSwitch) {
+               Log.e("yokong", "run: com.surpax.d.a.a()");
                Message var3;
                if(a.this.mBoolean9) {
                   if(!this.a) {
@@ -231,14 +234,14 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
                         a.this.mBoolean8 = true;
                         a.this.postInvalidate();
                         com.surpax.a.a.t = false;
-                        FlashlightActivity.a().runOnUiThread(new Runnable() {
+                        FlashlightActivity.getFlashlightActivityInstance().runOnUiThread(new Runnable() {
                            public final void run() {
-                              FlashlightActivity.a().a(false);
+                              FlashlightActivity.getFlashlightActivityInstance().a(false);
                            }
                         });
 
                         try {
-                           FlashlightActivity.a().d();
+                           FlashlightActivity.getFlashlightActivityInstance().d();
                         } catch (Exception var8) {
                            var8.printStackTrace();
                         }
@@ -252,7 +255,7 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
                      }
                   }
 
-                  if(com.surpax.a.a.g == 0) {
+                  if(com.surpax.a.a.lightNum == 0) {
                      a.this.mBoolean8 = true;
                      a.this.postInvalidate();
 
@@ -263,7 +266,7 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
                      }
                   } else {
                      this.a = false;
-                     long var1 = com.surpax.a.a.a(com.surpax.a.a.g);
+                     long var1 = com.surpax.a.a.a(com.surpax.a.a.lightNum);
 
                      try {
                         Thread.sleep(var1);
@@ -275,7 +278,7 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
                         com.surpax.a.a.t = false;
 
                         try {
-                           FlashlightActivity.a().e();
+                           FlashlightActivity.getFlashlightActivityInstance().e();
                         } catch (Exception var6) {
                            var6.printStackTrace();
                         }
@@ -302,14 +305,14 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
                   a.this.mBoolean9 = false;
                   this.a = false;
                   if(com.surpax.a.a.s) {
-                     FlashlightActivity.a().runOnUiThread(new Runnable() {
+                     FlashlightActivity.getFlashlightActivityInstance().runOnUiThread(new Runnable() {
                         public final void run() {
-                           FlashlightActivity.a().a(true);
+                           FlashlightActivity.getFlashlightActivityInstance().a(true);
                         }
                      });
 
                      try {
-                        FlashlightActivity.a().f();
+                        FlashlightActivity.getFlashlightActivityInstance().f();
                      } catch (Exception var9) {
                         var9.printStackTrace();
                      }
@@ -366,7 +369,7 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
       var1.what = 4;
       this.mHandler.sendMessage(var1);
       if(1 == com.surpax.a.a.h) {
-         FlashlightActivity.a().a(1);
+         FlashlightActivity.getFlashlightActivityInstance().a(1);
       }
 
    }
@@ -376,26 +379,26 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
       var1.setDrawFilter(this.mPaintFlagsDrawFilter);
       this.mMatrix.reset();
       this.mMatrix.postTranslate(0.0F, 0.0F);
-      this.mMatrix.postScale(FlashlightActivity.a().g, FlashlightActivity.a().h);
-      var1.drawBitmap(FlashlightActivity.a().b().led_bg, this.mMatrix, this.mPaint);
+      this.mMatrix.postScale(FlashlightActivity.getFlashlightActivityInstance().g, FlashlightActivity.getFlashlightActivityInstance().h);
+      var1.drawBitmap(FlashlightActivity.getFlashlightActivityInstance().b().led_bg, this.mMatrix, this.mPaint);
       this.mMatrix.reset();
-      this.mMatrix.postTranslate(FlashlightActivity.a().b().c, FlashlightActivity.a().b().d + this.mFloat1);
-      this.mMatrix.postScale(FlashlightActivity.a().g, FlashlightActivity.a().h);
-      var1.drawBitmap(FlashlightActivity.a().b().led_switch, this.mMatrix, this.mPaint);
+      this.mMatrix.postTranslate(FlashlightActivity.getFlashlightActivityInstance().b().c, FlashlightActivity.getFlashlightActivityInstance().b().d + this.mFloat1);
+      this.mMatrix.postScale(FlashlightActivity.getFlashlightActivityInstance().g, FlashlightActivity.getFlashlightActivityInstance().h);
+      var1.drawBitmap(FlashlightActivity.getFlashlightActivityInstance().b().led_switch, this.mMatrix, this.mPaint);
       this.mMatrix.reset();
-      this.mMatrix.postTranslate(FlashlightActivity.a().b().J + this.mFloat2, FlashlightActivity.a().b().K);
-      this.mMatrix.postScale(FlashlightActivity.a().g, FlashlightActivity.a().h);
-      var1.drawBitmap(FlashlightActivity.a().b().led_knob, this.mMatrix, this.mPaint);
+      this.mMatrix.postTranslate(FlashlightActivity.getFlashlightActivityInstance().b().J + this.mFloat2, FlashlightActivity.getFlashlightActivityInstance().b().K);
+      this.mMatrix.postScale(FlashlightActivity.getFlashlightActivityInstance().g, FlashlightActivity.getFlashlightActivityInstance().h);
+      var1.drawBitmap(FlashlightActivity.getFlashlightActivityInstance().b().led_knob, this.mMatrix, this.mPaint);
       this.mMatrix.reset();
-      this.mMatrix.postTranslate(FlashlightActivity.a().b().E, FlashlightActivity.a().b().F);
-      this.mMatrix.postScale(FlashlightActivity.a().g, FlashlightActivity.a().h);
-      var1.drawBitmap(FlashlightActivity.a().b().know_shadow, this.mMatrix, this.mPaint);
+      this.mMatrix.postTranslate(FlashlightActivity.getFlashlightActivityInstance().b().E, FlashlightActivity.getFlashlightActivityInstance().b().F);
+      this.mMatrix.postScale(FlashlightActivity.getFlashlightActivityInstance().g, FlashlightActivity.getFlashlightActivityInstance().h);
+      var1.drawBitmap(FlashlightActivity.getFlashlightActivityInstance().b().know_shadow, this.mMatrix, this.mPaint);
       this.mMatrix.reset();
-      this.mMatrix.postTranslate(FlashlightActivity.a().b().q, FlashlightActivity.a().b().r);
-      this.mMatrix.postScale(FlashlightActivity.a().g, FlashlightActivity.a().h);
-      com.surpax.a.b var2 = FlashlightActivity.a().b();
+      this.mMatrix.postTranslate(FlashlightActivity.getFlashlightActivityInstance().b().q, FlashlightActivity.getFlashlightActivityInstance().b().r);
+      this.mMatrix.postScale(FlashlightActivity.getFlashlightActivityInstance().g, FlashlightActivity.getFlashlightActivityInstance().h);
+      com.surpax.a.b var2 = FlashlightActivity.getFlashlightActivityInstance().b();
       Bitmap var3;
-      switch(com.surpax.a.a.g) {
+      switch(com.surpax.a.a.lightNum) {
       case 0:
          var3 = var2.num0;
          break;
@@ -433,16 +436,16 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
       var1.drawBitmap(var3, this.mMatrix, this.mPaint);
       if(this.mBoolean8) {
          this.mMatrix.reset();
-         this.mMatrix.postTranslate(FlashlightActivity.a().b().z, FlashlightActivity.a().b().A + this.mFloat1);
-         this.mMatrix.postScale(FlashlightActivity.a().g, FlashlightActivity.a().h);
-         var1.drawBitmap(FlashlightActivity.a().b().led_indicator, this.mMatrix, this.mPaint);
+         this.mMatrix.postTranslate(FlashlightActivity.getFlashlightActivityInstance().b().z, FlashlightActivity.getFlashlightActivityInstance().b().A + this.mFloat1);
+         this.mMatrix.postScale(FlashlightActivity.getFlashlightActivityInstance().g, FlashlightActivity.getFlashlightActivityInstance().h);
+         var1.drawBitmap(FlashlightActivity.getFlashlightActivityInstance().b().led_indicator, this.mMatrix, this.mPaint);
       }
 
    }
 
    public final void e() {
-      FlashlightActivity.a().a(true);
-      FlashlightActivity.a().f();
+      FlashlightActivity.getFlashlightActivityInstance().a(true);
+      FlashlightActivity.getFlashlightActivityInstance().f();
       this.mBoolean8 = false;
       this.mBoolean9 = false;
       this.mBoolean8 = false;
@@ -491,7 +494,7 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
       this.mBoolean6 = false;
       this.mBoolean1 = false;
       boolean var2;
-      if(var1.getX() >= FlashlightActivity.a().b().J * FlashlightActivity.a().g && var1.getX() <= (float)FlashlightActivity.a().e && var1.getY() >= FlashlightActivity.a().b().K * FlashlightActivity.a().h && var1.getY() <= FlashlightActivity.a().b().K * FlashlightActivity.a().h + FlashlightActivity.a().b().M * FlashlightActivity.a().h) {
+      if(var1.getX() >= FlashlightActivity.getFlashlightActivityInstance().b().J * FlashlightActivity.getFlashlightActivityInstance().g && var1.getX() <= (float)FlashlightActivity.getFlashlightActivityInstance().e && var1.getY() >= FlashlightActivity.getFlashlightActivityInstance().b().K * FlashlightActivity.getFlashlightActivityInstance().h && var1.getY() <= FlashlightActivity.getFlashlightActivityInstance().b().K * FlashlightActivity.getFlashlightActivityInstance().h + FlashlightActivity.getFlashlightActivityInstance().b().M * FlashlightActivity.getFlashlightActivityInstance().h) {
          this.mBoolean6 = true;
          var2 = true;
       } else {
@@ -499,7 +502,7 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
       }
 
       if(!var2) {
-         if(var1.getX() >= FlashlightActivity.a().b().c * FlashlightActivity.a().g && var1.getX() <= FlashlightActivity.a().b().c * FlashlightActivity.a().g + (float)FlashlightActivity.a().b().e * FlashlightActivity.a().g && var1.getY() >= FlashlightActivity.a().b().d * FlashlightActivity.a().h + this.mFloat1 && var1.getY() <= FlashlightActivity.a().b().d * FlashlightActivity.a().h + this.mFloat1 + (float)FlashlightActivity.a().b().f * FlashlightActivity.a().h) {
+         if(var1.getX() >= FlashlightActivity.getFlashlightActivityInstance().b().c * FlashlightActivity.getFlashlightActivityInstance().g && var1.getX() <= FlashlightActivity.getFlashlightActivityInstance().b().c * FlashlightActivity.getFlashlightActivityInstance().g + (float)FlashlightActivity.getFlashlightActivityInstance().b().e * FlashlightActivity.getFlashlightActivityInstance().g && var1.getY() >= FlashlightActivity.getFlashlightActivityInstance().b().d * FlashlightActivity.getFlashlightActivityInstance().h + this.mFloat1 && var1.getY() <= FlashlightActivity.getFlashlightActivityInstance().b().d * FlashlightActivity.getFlashlightActivityInstance().h + this.mFloat1 + (float)FlashlightActivity.getFlashlightActivityInstance().b().f * FlashlightActivity.getFlashlightActivityInstance().h) {
             this.mBoolean1 = true;
             var2 = var3;
          } else {
@@ -533,10 +536,10 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
 
             this.mInt1 = 0;
             this.mBoolean10 = false;
-            this.mInt2 = com.surpax.a.a.g;
-            com.surpax.a.a.g = 0;
+            this.lightNum = com.surpax.a.a.lightNum;
+            com.surpax.a.a.lightNum = 0;
             if(!this.mBoolean7 && 1 == com.surpax.a.a.h) {
-               FlashlightActivity.a().a(3);
+               FlashlightActivity.getFlashlightActivityInstance().a(3);
                this.mBoolean7 = true;
             }
          } else if(this.mFloat2 >= (float)com.surpax.a.a.n) {
@@ -546,10 +549,10 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
 
             this.mInt1 = 9;
             this.mBoolean10 = true;
-            this.mInt2 = 9 - com.surpax.a.a.g;
-            com.surpax.a.a.g = 9;
+            this.lightNum = 9 - com.surpax.a.a.lightNum;
+            com.surpax.a.a.lightNum = 9;
             if(!this.mBoolean7 && 1 == com.surpax.a.a.h) {
-               FlashlightActivity.a().a(3);
+               FlashlightActivity.getFlashlightActivityInstance().a(3);
                this.mBoolean7 = true;
             }
          } else {
@@ -558,16 +561,16 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
             if(var6 >= this.mInt1 && var5 > this.mInt1) {
                if(1 == var6 - this.mInt1) {
                   this.mInt1 = var6;
-                  com.surpax.a.a.g = this.mInt1;
+                  com.surpax.a.a.lightNum = this.mInt1;
                   if(1 == com.surpax.a.a.h) {
-                     FlashlightActivity.a().a(2);
+                     FlashlightActivity.getFlashlightActivityInstance().a(2);
                   }
                }
             } else if(var5 <= this.mInt1 && var6 < this.mInt1 && 1 == this.mInt1 - var5) {
                this.mInt1 = var5;
-               com.surpax.a.a.g = this.mInt1;
+               com.surpax.a.a.lightNum = this.mInt1;
                if(1 == com.surpax.a.a.h) {
-                  FlashlightActivity.a().a(2);
+                  FlashlightActivity.getFlashlightActivityInstance().a(2);
                }
             }
          }
@@ -579,7 +582,7 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
          if(this.mFloat1 >= 0.0F) {
             this.mFloat1 = 0.0F;
             if(this.mBoolean2 && this.mBoolean9) {
-               if(FlashlightActivity.a().g()) {
+               if(FlashlightActivity.getFlashlightActivityInstance().g()) {
                   var7 = new Message();
                   var7.what = 4;
                   this.mHandler.sendMessage(var7);
@@ -588,14 +591,14 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
                }
 
                if(1 == com.surpax.a.a.h) {
-                  FlashlightActivity.a().a(1);
+                  FlashlightActivity.getFlashlightActivityInstance().a(1);
                }
             }
 
-            if(!FlashlightActivity.a().g() && !this.mBoolean3) {
+            if(!FlashlightActivity.getFlashlightActivityInstance().g() && !this.mBoolean3) {
                this.mBoolean3 = true;
                if(!this.mBoolean5 && 1 == com.surpax.a.a.h) {
-                  FlashlightActivity.a().a(1);
+                  FlashlightActivity.getFlashlightActivityInstance().a(1);
                }
             }
 
@@ -609,7 +612,7 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
             this.mBoolean8 = true;
             if(!this.mBoolean2 && !this.mBoolean9) {
                com.surpax.a.a.i = 1;
-               if(FlashlightActivity.a().g()) {
+               if(FlashlightActivity.getFlashlightActivityInstance().g()) {
                   var7 = new Message();
                   var7.what = 3;
                   this.mHandler.sendMessage(var7);
@@ -618,16 +621,16 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
                }
 
                if(1 == com.surpax.a.a.h) {
-                  FlashlightActivity.a().a(1);
+                  FlashlightActivity.getFlashlightActivityInstance().a(1);
                }
 
                this.mBoolean2 = true;
             }
 
-            if(!FlashlightActivity.a().g() && !this.mBoolean9) {
+            if(!FlashlightActivity.getFlashlightActivityInstance().g() && !this.mBoolean9) {
                this.mBoolean9 = true;
                if(!this.mBoolean4 && 1 == com.surpax.a.a.h) {
-                  FlashlightActivity.a().a(1);
+                  FlashlightActivity.getFlashlightActivityInstance().a(1);
                }
             }
 
@@ -639,7 +642,7 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
             this.mBoolean4 = true;
             this.mBoolean5 = false;
             com.surpax.a.a.i = 1;
-            if(FlashlightActivity.a().g()) {
+            if(FlashlightActivity.getFlashlightActivityInstance().g()) {
                var7 = new Message();
                var7.what = 3;
                this.mHandler.sendMessage(var7);
@@ -649,7 +652,7 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
             }
 
             if(1 == com.surpax.a.a.h) {
-               FlashlightActivity.a().a(1);
+               FlashlightActivity.getFlashlightActivityInstance().a(1);
             }
          } else if(!this.mBoolean5 && this.mFloat1 > (float)(com.surpax.a.a.m / 2)) {
             this.mBoolean5 = true;
@@ -659,13 +662,13 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
             com.surpax.a.a.i = 0;
             this.mBoolean3 = true;
             if(1 == com.surpax.a.a.h) {
-               FlashlightActivity.a().a(1);
+               FlashlightActivity.getFlashlightActivityInstance().a(1);
             }
 
             this.mBoolean2 = false;
             this.u = true;
-            if(1 == FlashlightActivity.a().b) {
-               FlashlightActivity.a().c = true;
+            if(1 == FlashlightActivity.getFlashlightActivityInstance().b) {
+               FlashlightActivity.getFlashlightActivityInstance().c = true;
             }
          }
 
@@ -693,11 +696,10 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
       if(this.mGestureDetector != null) {
          this.mGestureDetector.onTouchEvent(var1);
       }
-
       switch(var1.getAction()) {
       case 0:
          com.surpax.b.a.b = true;
-         FlashlightActivity.a().l();
+         FlashlightActivity.getFlashlightActivityInstance().l();
          return true;
       case 1:
          if(this.mBoolean1) {
@@ -732,18 +734,18 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
                if(this.mFloat2 - var2 >= this.mFloat3) {
                   ++this.mInt1;
                   if(1 == com.surpax.a.a.h) {
-                     FlashlightActivity.a().a(2);
+                     FlashlightActivity.getFlashlightActivityInstance().a(2);
                   }
 
-                  com.surpax.a.a.g = this.mInt1;
+                  com.surpax.a.a.lightNum = this.mInt1;
                }
             } else if(var2 - this.mFloat2 >= this.mFloat3) {
                --this.mInt1;
                if(1 == com.surpax.a.a.h) {
-                  FlashlightActivity.a().a(2);
+                  FlashlightActivity.getFlashlightActivityInstance().a(2);
                }
 
-               com.surpax.a.a.g = this.mInt1;
+               com.surpax.a.a.lightNum = this.mInt1;
             }
 
             switch(this.mInt1) {

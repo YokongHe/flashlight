@@ -40,7 +40,7 @@ public final class c {
    public final void a(int var1) {
       Log.d("flashlightactivity", "play now.....");
       if(this.a != null) {
-         AudioManager var3 = (AudioManager)FlashlightActivity.a().getSystemService(Context.AUDIO_SERVICE);
+         AudioManager var3 = (AudioManager)FlashlightActivity.getFlashlightActivityInstance().getSystemService(Context.AUDIO_SERVICE);
          int var2;
          if(var3 != null) {
             var2 = var3.getStreamVolume(3);

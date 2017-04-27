@@ -41,7 +41,7 @@ public class FlashlightActivity extends Activity {
    public boolean a = false;
    public int b = 0;
    public boolean c = false;
-   public boolean d;
+   public boolean lightSwitch;
    public int e;
    public SurfaceView f;
    public float g;
@@ -70,7 +70,7 @@ public class FlashlightActivity extends Activity {
       return var2;
    }
 
-   public static FlashlightActivity a() {
+   public static FlashlightActivity getFlashlightActivityInstance() {
       return p;
    }
 
@@ -93,16 +93,17 @@ public class FlashlightActivity extends Activity {
    }
 
    public final void a(boolean var1) {
+      Log.e("yokong", "FlashlightActivity.a(): ");
       if(this.t && this.v != null) {
          if(!var1) {
-            this.v.setVisibility(View.INVISIBLE);
+//            this.v.setVisibility(View.INVISIBLE);
             return;
          }
 
          this.v.setVisibility(View.VISIBLE);
          if(this.j != null && this.l) {
-            this.j.setVisibility(View.VISIBLE);
-            this.l = false;
+//            this.j.setVisibility(View.VISIBLE);
+//            this.l = false;
          }
 
          this.k.setVisibility(View.VISIBLE);
@@ -235,7 +236,7 @@ public class FlashlightActivity extends Activity {
       this.setContentView(R.layout.main);
       p = this;
       this.l = false;
-      this.d = false;
+      this.lightSwitch = false;
       this.m = false;
       com.surpax.a.a.l = false;
       this.c = false;
@@ -434,7 +435,7 @@ public class FlashlightActivity extends Activity {
 
    protected void onDestroy() {
       super.onDestroy();
-      this.d = true;
+      this.lightSwitch = true;
       this.v.setVisibility(View.INVISIBLE);
       this.v.f();
       this.m = false;
@@ -503,8 +504,8 @@ public class FlashlightActivity extends Activity {
          this.v.e();
       }
 
-      com.surpax.a.a.g = 0;
-      this.a("surpax_lighting_frequency", com.surpax.a.a.g);
+      com.surpax.a.a.lightNum = 0;
+      this.a("surpax_lighting_frequency", com.surpax.a.a.lightNum);
       this.v.f();
       this.v.b();
       if(this.s != null) {
@@ -547,9 +548,9 @@ public class FlashlightActivity extends Activity {
    @TargetApi(11)
    protected void onResume() {
       int var1 = this.a("surpax_lighting_frequency");
-      com.surpax.a.a.g = var1;
+      com.surpax.a.a.lightNum = var1;
       if(var1 == -1) {
-         com.surpax.a.a.g = 0;
+         com.surpax.a.a.lightNum = 0;
       }
 
       com.surpax.a.a.j = this.a("surpax_light_state");
@@ -641,7 +642,6 @@ public class FlashlightActivity extends Activity {
 
    protected void onStop() {
       super.onStop();
-      (new StringBuilder("flashlightactivity stop entrance, time = ")).append(System.currentTimeMillis()).toString();
       this.v.setVisibility(View.INVISIBLE);
       System.gc();
       this.w.release();

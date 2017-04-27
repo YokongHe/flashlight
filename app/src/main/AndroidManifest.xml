@@ -58,24 +58,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.surpax.ledflashlight.HoneyCombActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|touchscreen"
-            android:excludeFromRecents="true"
-            android:label="@string/app_name"
-            android:launchMode="singleTask"
-            android:noHistory="true"
-            android:screenOrientation="portrait"
-            android:taskAffinity=""
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
-        <activity
-            android:name="com.surpax.ledflashlight.HoneyCombInnerActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|touchscreen"
-            android:excludeFromRecents="true"
-            android:label="@string/app_name"
-            android:noHistory="true"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
         <!--<activity-->
         <!--android:name="com.surpax.ledflashlight.RateAlertActivity"-->
         <!--android:configChanges="keyboard|keyboardHidden|orientation|touchscreen"-->
