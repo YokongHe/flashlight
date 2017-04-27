@@ -23,57 +23,57 @@ import android.view.animation.Animation.AnimationListener;
 import com.surpax.ledflashlight.FlashlightActivity;
 
 public final class a extends View implements OnDoubleTapListener, OnGestureListener, OnClickListener {
-   private GestureDetector a = null;
-   private PaintFlagsDrawFilter b;
-   private Paint c;
-   private Matrix d;
-   private float e;
-   private float f;
-   private int g;
-   private float h;
-   private boolean i;
-   private boolean j = false;
-   private boolean k = false;
-   private boolean l;
-   private boolean m;
-   private boolean n;
-   private boolean o;
-   private boolean p;
-   private boolean q;
-   private boolean r;
-   private int s;
-   private Handler t;
+   private GestureDetector mGestureDetector = null;
+   private PaintFlagsDrawFilter mPaintFlagsDrawFilter;
+   private Paint mPaint;
+   private Matrix mMatrix;
+   private float mFloat1;
+   private float mFloat2;
+   private int mInt1;
+   private float mFloat3;
+   private boolean mBoolean1;
+   private boolean mBoolean2 = false;
+   private boolean mBoolean3 = false;
+   private boolean mBoolean4;
+   private boolean mBoolean5;
+   private boolean mBoolean6;
+   private boolean mBoolean7;
+   private boolean mBoolean8;
+   private boolean mBoolean9;
+   private boolean mBoolean10;
+   private int mInt2;
+   private Handler mHandler;
    private boolean u;
 
    public a(Context var1) {
       super(var1);
       this.setFocusable(true);
       this.setFocusableInTouchMode(true);
-      this.a = new GestureDetector(this);
-      this.a.setOnDoubleTapListener(this);
-      this.b = new PaintFlagsDrawFilter(0, 3);
-      this.c = new Paint();
-      this.d = new Matrix();
-      this.j = false;
-      this.m = true;
-      this.l = false;
-      this.k = false;
-      this.q = false;
-      this.p = false;
-      this.r = false;
-      this.s = 0;
-      this.f = (float)(com.surpax.a.a.o * com.surpax.a.a.g * 2);
-      this.g = com.surpax.a.a.g * 2;
-      this.h = (float)(com.surpax.a.a.o / 2);
-      this.t = new com.surpax.d.b() {
+      this.mGestureDetector = new GestureDetector(this);
+      this.mGestureDetector.setOnDoubleTapListener(this);
+      this.mPaintFlagsDrawFilter = new PaintFlagsDrawFilter(0, 3);
+      this.mPaint = new Paint();
+      this.mMatrix = new Matrix();
+      this.mBoolean2 = false;
+      this.mBoolean5 = true;
+      this.mBoolean4 = false;
+      this.mBoolean3 = false;
+      this.mBoolean9 = false;
+      this.mBoolean8 = false;
+      this.mBoolean10 = false;
+      this.mInt2 = 0;
+      this.mFloat2 = (float)(com.surpax.a.a.o * com.surpax.a.a.g * 2);
+      this.mInt1 = com.surpax.a.a.g * 2;
+      this.mFloat3 = (float)(com.surpax.a.a.o / 2);
+      this.mHandler = new com.surpax.d.b() {
          public final void handleMessage(Message var1) {
             super.handleMessage(var1);
             switch(var1.what) {
             case 0:
                FlashlightActivity.a().a(false);
                FlashlightActivity.a().d();
-               a.this.q = true;
-               a.this.p = true;
+               a.this.mBoolean9 = true;
+               a.this.mBoolean8 = true;
                a.this.postInvalidate();
                return;
             case 1:
@@ -82,9 +82,9 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
             case 2:
                FlashlightActivity.a().a(true);
                FlashlightActivity.a().f();
-               a.this.p = false;
+               a.this.mBoolean8 = false;
                com.surpax.d.a.a(a.this, 0.0F);
-               a.this.q = false;
+               a.this.mBoolean9 = false;
                com.surpax.d.a.d(a.this, true);
                com.surpax.d.a.e(a.this, false);
                com.surpax.d.a.f(a.this, false);
@@ -97,9 +97,9 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
             case 4:
                FlashlightActivity.a().a(true);
                FlashlightActivity.a().f();
-               a.this.p = false;
+               a.this.mBoolean8 = false;
                com.surpax.d.a.a(a.this, 0.0F);
-               a.this.q = false;
+               a.this.mBoolean9 = false;
                com.surpax.d.a.d(a.this, true);
                com.surpax.d.a.e(a.this, false);
                com.surpax.d.a.f(a.this, false);
@@ -110,12 +110,12 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
          }
       };
       if(com.surpax.a.a.i == 1) {
-         this.e = (float)com.surpax.a.a.m;
-         this.p = true;
-         this.q = true;
-         this.m = false;
-         this.l = true;
-         this.j = true;
+         this.mFloat1 = (float)com.surpax.a.a.m;
+         this.mBoolean8 = true;
+         this.mBoolean9 = true;
+         this.mBoolean5 = false;
+         this.mBoolean4 = true;
+         this.mBoolean2 = true;
       }
 
       (new Thread() {
@@ -123,18 +123,18 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
             super.run();
 
             while(!FlashlightActivity.a().d) {
-               if(a.this.s > 0) {
+               if(a.this.mInt2 > 0) {
                   int var1;
                   com.surpax.d.a var2;
-                  if(a.this.r) {
+                  if(a.this.mBoolean10) {
                      var2 = a.this;
-                     var1 = var2.s - 1;
-                     var2.s = var1;
+                     var1 = var2.mInt2 - 1;
+                     var2.mInt2 = var1;
                      com.surpax.a.a.g = 9 - var1;
                   } else {
                      var2 = a.this;
-                     var1 = var2.s - 1;
-                     var2.s = var1;
+                     var1 = var2.mInt2 - 1;
+                     var2.mInt2 = var1;
                      com.surpax.a.a.g = var1;
                   }
 
@@ -154,7 +154,7 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
 
    // $FF: synthetic method
    static void a(com.surpax.d.a var0, float var1) {
-      var0.e = 0.0F;
+      var0.mFloat1 = var1;
    }
 
    // $FF: synthetic method
@@ -181,7 +181,7 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
                var2.what = 2;
             }
 
-            var0.t.sendMessage(var2);
+            var0.mHandler.sendMessage(var2);
             var0.postInvalidate();
          }
 
@@ -199,22 +199,22 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
 
    // $FF: synthetic method
    static void d(com.surpax.d.a var0, boolean var1) {
-      var0.m = true;
+      var0.mBoolean5 = var1;
    }
 
    // $FF: synthetic method
    static void e(com.surpax.d.a var0, boolean var1) {
-      var0.l = false;
+      var0.mBoolean4 = var1;
    }
 
    // $FF: synthetic method
    static void f(com.surpax.d.a var0, boolean var1) {
-      var0.j = false;
+      var0.mBoolean2 = var1;
    }
 
    // $FF: synthetic method
    static void g(com.surpax.d.a var0, boolean var1) {
-      var0.k = false;
+      var0.mBoolean3 = var1;
    }
 
    public final void a() {
@@ -224,11 +224,11 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
          public final void run() {
             while(!FlashlightActivity.a().d) {
                Message var3;
-               if(a.this.q) {
+               if(a.this.mBoolean9) {
                   if(!this.a) {
                      this.a = true;
                      if(com.surpax.a.a.s) {
-                        a.this.p = true;
+                        a.this.mBoolean8 = true;
                         a.this.postInvalidate();
                         com.surpax.a.a.t = false;
                         FlashlightActivity.a().runOnUiThread(new Runnable() {
@@ -246,14 +246,14 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
                         com.surpax.a.a.t = true;
                         var3 = new Message();
                         var3.what = 0;
-                        if(a.this.t != null) {
-                           a.this.t.sendMessage(var3);
+                        if(a.this.mHandler != null) {
+                           a.this.mHandler.sendMessage(var3);
                         }
                      }
                   }
 
                   if(com.surpax.a.a.g == 0) {
-                     a.this.p = true;
+                     a.this.mBoolean8 = true;
                      a.this.postInvalidate();
 
                      try {
@@ -283,12 +283,12 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
                         com.surpax.a.a.t = true;
                         var3 = new Message();
                         var3.what = 1;
-                        if(a.this.t != null) {
-                           a.this.t.sendMessage(var3);
+                        if(a.this.mHandler != null) {
+                           a.this.mHandler.sendMessage(var3);
                         }
                      }
 
-                     a.this.p = false;
+                     a.this.mBoolean8 = false;
                      a.this.postInvalidate();
 
                      try {
@@ -297,9 +297,9 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
                         var5.printStackTrace();
                      }
                   }
-               } else if(a.this.k) {
+               } else if(a.this.mBoolean3) {
                   com.surpax.d.a.g(a.this, false);
-                  a.this.q = false;
+                  a.this.mBoolean9 = false;
                   this.a = false;
                   if(com.surpax.a.a.s) {
                      FlashlightActivity.a().runOnUiThread(new Runnable() {
@@ -321,12 +321,12 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
                   } else {
                      var3 = new Message();
                      var3.what = 2;
-                     if(a.this.t != null) {
-                        a.this.t.sendMessage(var3);
+                     if(a.this.mHandler != null) {
+                        a.this.mHandler.sendMessage(var3);
                      }
                   }
 
-                  a.this.p = false;
+                  a.this.mBoolean8 = false;
                   a.this.postInvalidate();
                } else {
                   this.a = false;
@@ -344,27 +344,27 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
    }
 
    public final void b() {
-      this.t.removeCallbacksAndMessages((Object)null);
-      this.q = false;
+      this.mHandler.removeCallbacksAndMessages((Object)null);
+      this.mBoolean9 = false;
    }
 
    public final boolean c() {
-      return this.q;
+      return this.mBoolean9;
    }
 
    public final void d() {
-      this.p = false;
-      this.e = 0.0F;
-      this.q = false;
-      this.n = false;
-      this.i = false;
-      this.m = true;
-      this.l = false;
-      this.j = true;
+      this.mBoolean8 = false;
+      this.mFloat1 = 0.0F;
+      this.mBoolean9 = false;
+      this.mBoolean6 = false;
+      this.mBoolean1 = false;
+      this.mBoolean5 = true;
+      this.mBoolean4 = false;
+      this.mBoolean2 = true;
       com.surpax.a.a.i = 0;
       Message var1 = new Message();
       var1.what = 4;
-      this.t.sendMessage(var1);
+      this.mHandler.sendMessage(var1);
       if(1 == com.surpax.a.a.h) {
          FlashlightActivity.a().a(1);
       }
@@ -373,69 +373,69 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
 
    public final void draw(Canvas var1) {
       super.draw(var1);
-      var1.setDrawFilter(this.b);
-      this.d.reset();
-      this.d.postTranslate(0.0F, 0.0F);
-      this.d.postScale(FlashlightActivity.a().g, FlashlightActivity.a().h);
-      var1.drawBitmap(FlashlightActivity.a().b().a, this.d, this.c);
-      this.d.reset();
-      this.d.postTranslate(FlashlightActivity.a().b().c, FlashlightActivity.a().b().d + this.e);
-      this.d.postScale(FlashlightActivity.a().g, FlashlightActivity.a().h);
-      var1.drawBitmap(FlashlightActivity.a().b().b, this.d, this.c);
-      this.d.reset();
-      this.d.postTranslate(FlashlightActivity.a().b().J + this.f, FlashlightActivity.a().b().K);
-      this.d.postScale(FlashlightActivity.a().g, FlashlightActivity.a().h);
-      var1.drawBitmap(FlashlightActivity.a().b().I, this.d, this.c);
-      this.d.reset();
-      this.d.postTranslate(FlashlightActivity.a().b().E, FlashlightActivity.a().b().F);
-      this.d.postScale(FlashlightActivity.a().g, FlashlightActivity.a().h);
-      var1.drawBitmap(FlashlightActivity.a().b().D, this.d, this.c);
-      this.d.reset();
-      this.d.postTranslate(FlashlightActivity.a().b().q, FlashlightActivity.a().b().r);
-      this.d.postScale(FlashlightActivity.a().g, FlashlightActivity.a().h);
+      var1.setDrawFilter(this.mPaintFlagsDrawFilter);
+      this.mMatrix.reset();
+      this.mMatrix.postTranslate(0.0F, 0.0F);
+      this.mMatrix.postScale(FlashlightActivity.a().g, FlashlightActivity.a().h);
+      var1.drawBitmap(FlashlightActivity.a().b().led_bg, this.mMatrix, this.mPaint);
+      this.mMatrix.reset();
+      this.mMatrix.postTranslate(FlashlightActivity.a().b().c, FlashlightActivity.a().b().d + this.mFloat1);
+      this.mMatrix.postScale(FlashlightActivity.a().g, FlashlightActivity.a().h);
+      var1.drawBitmap(FlashlightActivity.a().b().led_switch, this.mMatrix, this.mPaint);
+      this.mMatrix.reset();
+      this.mMatrix.postTranslate(FlashlightActivity.a().b().J + this.mFloat2, FlashlightActivity.a().b().K);
+      this.mMatrix.postScale(FlashlightActivity.a().g, FlashlightActivity.a().h);
+      var1.drawBitmap(FlashlightActivity.a().b().led_knob, this.mMatrix, this.mPaint);
+      this.mMatrix.reset();
+      this.mMatrix.postTranslate(FlashlightActivity.a().b().E, FlashlightActivity.a().b().F);
+      this.mMatrix.postScale(FlashlightActivity.a().g, FlashlightActivity.a().h);
+      var1.drawBitmap(FlashlightActivity.a().b().know_shadow, this.mMatrix, this.mPaint);
+      this.mMatrix.reset();
+      this.mMatrix.postTranslate(FlashlightActivity.a().b().q, FlashlightActivity.a().b().r);
+      this.mMatrix.postScale(FlashlightActivity.a().g, FlashlightActivity.a().h);
       com.surpax.a.b var2 = FlashlightActivity.a().b();
       Bitmap var3;
       switch(com.surpax.a.a.g) {
       case 0:
-         var3 = var2.g;
+         var3 = var2.num0;
          break;
       case 1:
-         var3 = var2.h;
+         var3 = var2.num1;
          break;
       case 2:
-         var3 = var2.i;
+         var3 = var2.num2;
          break;
       case 3:
-         var3 = var2.j;
+         var3 = var2.num3;
          break;
       case 4:
-         var3 = var2.k;
+         var3 = var2.num4;
          break;
       case 5:
-         var3 = var2.l;
+         var3 = var2.num5;
          break;
       case 6:
-         var3 = var2.m;
+         var3 = var2.num6;
          break;
       case 7:
-         var3 = var2.n;
+         var3 = var2.num7;
          break;
       case 8:
-         var3 = var2.o;
+         var3 = var2.num8;
          break;
       case 9:
-         var3 = var2.p;
+         var3 = var2.num9;
          break;
       default:
-         var3 = var2.g;
+         var3 = var2.num0;
       }
 
-      var1.drawBitmap(var3, this.d, this.c);
-      if(this.p) {
-         this.d.reset();
-         this.d.postTranslate(FlashlightActivity.a().b().z, FlashlightActivity.a().b().A + this.e);
-         this.d.postScale(FlashlightActivity.a().g, FlashlightActivity.a().h);
-         var1.drawBitmap(FlashlightActivity.a().b().y, this.d, this.c);
+      var1.drawBitmap(var3, this.mMatrix, this.mPaint);
+      if(this.mBoolean8) {
+         this.mMatrix.reset();
+         this.mMatrix.postTranslate(FlashlightActivity.a().b().z, FlashlightActivity.a().b().A + this.mFloat1);
+         this.mMatrix.postScale(FlashlightActivity.a().g, FlashlightActivity.a().h);
+         var1.drawBitmap(FlashlightActivity.a().b().led_indicator, this.mMatrix, this.mPaint);
       }
 
    }
@@ -443,34 +443,34 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
    public final void e() {
       FlashlightActivity.a().a(true);
       FlashlightActivity.a().f();
-      this.p = false;
-      this.q = false;
-      this.p = false;
-      this.e = 0.0F;
-      this.m = true;
-      this.l = false;
-      this.j = false;
+      this.mBoolean8 = false;
+      this.mBoolean9 = false;
+      this.mBoolean8 = false;
+      this.mFloat1 = 0.0F;
+      this.mBoolean5 = true;
+      this.mBoolean4 = false;
+      this.mBoolean2 = false;
    }
 
    public final void f() {
-      this.p = false;
-      this.q = false;
-      this.p = false;
-      this.e = 0.0F;
-      this.m = true;
-      this.l = false;
-      this.j = false;
+      this.mBoolean8 = false;
+      this.mBoolean9 = false;
+      this.mBoolean8 = false;
+      this.mFloat1 = 0.0F;
+      this.mBoolean5 = true;
+      this.mBoolean4 = false;
+      this.mBoolean2 = false;
       this.u = false;
    }
 
    public final void g() {
-      if(com.surpax.a.a.i == 1 && !this.q) {
-         this.e = (float)com.surpax.a.a.m;
-         this.p = true;
-         this.q = true;
-         this.m = false;
-         this.l = true;
-         this.j = true;
+      if(com.surpax.a.a.i == 1 && !this.mBoolean9) {
+         this.mFloat1 = (float)com.surpax.a.a.m;
+         this.mBoolean8 = true;
+         this.mBoolean9 = true;
+         this.mBoolean5 = false;
+         this.mBoolean4 = true;
+         this.mBoolean2 = true;
       }
 
    }
@@ -488,27 +488,27 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
 
    public final boolean onDown(MotionEvent var1) {
       boolean var3 = true;
-      this.n = false;
-      this.i = false;
+      this.mBoolean6 = false;
+      this.mBoolean1 = false;
       boolean var2;
       if(var1.getX() >= FlashlightActivity.a().b().J * FlashlightActivity.a().g && var1.getX() <= (float)FlashlightActivity.a().e && var1.getY() >= FlashlightActivity.a().b().K * FlashlightActivity.a().h && var1.getY() <= FlashlightActivity.a().b().K * FlashlightActivity.a().h + FlashlightActivity.a().b().M * FlashlightActivity.a().h) {
-         this.n = true;
+         this.mBoolean6 = true;
          var2 = true;
       } else {
          var2 = false;
       }
 
       if(!var2) {
-         if(var1.getX() >= FlashlightActivity.a().b().c * FlashlightActivity.a().g && var1.getX() <= FlashlightActivity.a().b().c * FlashlightActivity.a().g + (float)FlashlightActivity.a().b().e * FlashlightActivity.a().g && var1.getY() >= FlashlightActivity.a().b().d * FlashlightActivity.a().h + this.e && var1.getY() <= FlashlightActivity.a().b().d * FlashlightActivity.a().h + this.e + (float)FlashlightActivity.a().b().f * FlashlightActivity.a().h) {
-            this.i = true;
+         if(var1.getX() >= FlashlightActivity.a().b().c * FlashlightActivity.a().g && var1.getX() <= FlashlightActivity.a().b().c * FlashlightActivity.a().g + (float)FlashlightActivity.a().b().e * FlashlightActivity.a().g && var1.getY() >= FlashlightActivity.a().b().d * FlashlightActivity.a().h + this.mFloat1 && var1.getY() <= FlashlightActivity.a().b().d * FlashlightActivity.a().h + this.mFloat1 + (float)FlashlightActivity.a().b().f * FlashlightActivity.a().h) {
+            this.mBoolean1 = true;
             var2 = var3;
          } else {
             var2 = false;
          }
 
          if(!var2) {
-            this.n = false;
-            this.i = false;
+            this.mBoolean6 = false;
+            this.mBoolean1 = false;
             return false;
          }
       }
@@ -524,48 +524,48 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
    }
 
    public final boolean onScroll(MotionEvent var1, MotionEvent var2, float var3, float var4) {
-      if(this.n) {
-         this.f -= var3;
-         if(this.f <= 0.0F) {
-            if(this.f < (float)(-com.surpax.a.a.o / 4)) {
-               this.f = (float)(-com.surpax.a.a.o / 4);
+      if(this.mBoolean6) {
+         this.mFloat2 -= var3;
+         if(this.mFloat2 <= 0.0F) {
+            if(this.mFloat2 < (float)(-com.surpax.a.a.o / 4)) {
+               this.mFloat2 = (float)(-com.surpax.a.a.o / 4);
             }
 
-            this.g = 0;
-            this.r = false;
-            this.s = com.surpax.a.a.g;
+            this.mInt1 = 0;
+            this.mBoolean10 = false;
+            this.mInt2 = com.surpax.a.a.g;
             com.surpax.a.a.g = 0;
-            if(!this.o && 1 == com.surpax.a.a.h) {
+            if(!this.mBoolean7 && 1 == com.surpax.a.a.h) {
                FlashlightActivity.a().a(3);
-               this.o = true;
+               this.mBoolean7 = true;
             }
-         } else if(this.f >= (float)com.surpax.a.a.n) {
-            if(this.f > (float)(com.surpax.a.a.n + com.surpax.a.a.o / 4)) {
-               this.f = (float)(com.surpax.a.a.n + com.surpax.a.a.o / 4);
+         } else if(this.mFloat2 >= (float)com.surpax.a.a.n) {
+            if(this.mFloat2 > (float)(com.surpax.a.a.n + com.surpax.a.a.o / 4)) {
+               this.mFloat2 = (float)(com.surpax.a.a.n + com.surpax.a.a.o / 4);
             }
 
-            this.g = 9;
-            this.r = true;
-            this.s = 9 - com.surpax.a.a.g;
+            this.mInt1 = 9;
+            this.mBoolean10 = true;
+            this.mInt2 = 9 - com.surpax.a.a.g;
             com.surpax.a.a.g = 9;
-            if(!this.o && 1 == com.surpax.a.a.h) {
+            if(!this.mBoolean7 && 1 == com.surpax.a.a.h) {
                FlashlightActivity.a().a(3);
-               this.o = true;
+               this.mBoolean7 = true;
             }
          } else {
-            int var5 = (int)Math.ceil((double)(this.f / (float)com.surpax.a.a.o));
-            int var6 = (int)Math.floor((double)(this.f / (float)com.surpax.a.a.o));
-            if(var6 >= this.g && var5 > this.g) {
-               if(1 == var6 - this.g) {
-                  this.g = var6;
-                  com.surpax.a.a.g = this.g;
+            int var5 = (int)Math.ceil((double)(this.mFloat2 / (float)com.surpax.a.a.o));
+            int var6 = (int)Math.floor((double)(this.mFloat2 / (float)com.surpax.a.a.o));
+            if(var6 >= this.mInt1 && var5 > this.mInt1) {
+               if(1 == var6 - this.mInt1) {
+                  this.mInt1 = var6;
+                  com.surpax.a.a.g = this.mInt1;
                   if(1 == com.surpax.a.a.h) {
                      FlashlightActivity.a().a(2);
                   }
                }
-            } else if(var5 <= this.g && var6 < this.g && 1 == this.g - var5) {
-               this.g = var5;
-               com.surpax.a.a.g = this.g;
+            } else if(var5 <= this.mInt1 && var6 < this.mInt1 && 1 == this.mInt1 - var5) {
+               this.mInt1 = var5;
+               com.surpax.a.a.g = this.mInt1;
                if(1 == com.surpax.a.a.h) {
                   FlashlightActivity.a().a(2);
                }
@@ -573,18 +573,18 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
          }
 
          this.invalidate();
-      } else if(this.i) {
-         this.e -= var4;
+      } else if(this.mBoolean1) {
+         this.mFloat1 -= var4;
          Message var7;
-         if(this.e >= 0.0F) {
-            this.e = 0.0F;
-            if(this.j && this.q) {
+         if(this.mFloat1 >= 0.0F) {
+            this.mFloat1 = 0.0F;
+            if(this.mBoolean2 && this.mBoolean9) {
                if(FlashlightActivity.a().g()) {
                   var7 = new Message();
                   var7.what = 4;
-                  this.t.sendMessage(var7);
+                  this.mHandler.sendMessage(var7);
                } else {
-                  this.k = true;
+                  this.mBoolean3 = true;
                }
 
                if(1 == com.surpax.a.a.h) {
@@ -592,77 +592,77 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
                }
             }
 
-            if(!FlashlightActivity.a().g() && !this.k) {
-               this.k = true;
-               if(!this.m && 1 == com.surpax.a.a.h) {
+            if(!FlashlightActivity.a().g() && !this.mBoolean3) {
+               this.mBoolean3 = true;
+               if(!this.mBoolean5 && 1 == com.surpax.a.a.h) {
                   FlashlightActivity.a().a(1);
                }
             }
 
-            this.j = false;
-            this.q = false;
-            this.p = false;
-            this.l = false;
-            this.m = true;
+            this.mBoolean2 = false;
+            this.mBoolean9 = false;
+            this.mBoolean8 = false;
+            this.mBoolean4 = false;
+            this.mBoolean5 = true;
             com.surpax.a.a.i = 0;
-         } else if(this.e < (float)com.surpax.a.a.m) {
-            this.p = true;
-            if(!this.j && !this.q) {
+         } else if(this.mFloat1 < (float)com.surpax.a.a.m) {
+            this.mBoolean8 = true;
+            if(!this.mBoolean2 && !this.mBoolean9) {
                com.surpax.a.a.i = 1;
                if(FlashlightActivity.a().g()) {
                   var7 = new Message();
                   var7.what = 3;
-                  this.t.sendMessage(var7);
+                  this.mHandler.sendMessage(var7);
                } else {
-                  this.q = true;
+                  this.mBoolean9 = true;
                }
 
                if(1 == com.surpax.a.a.h) {
                   FlashlightActivity.a().a(1);
                }
 
-               this.j = true;
+               this.mBoolean2 = true;
             }
 
-            if(!FlashlightActivity.a().g() && !this.q) {
-               this.q = true;
-               if(!this.l && 1 == com.surpax.a.a.h) {
+            if(!FlashlightActivity.a().g() && !this.mBoolean9) {
+               this.mBoolean9 = true;
+               if(!this.mBoolean4 && 1 == com.surpax.a.a.h) {
                   FlashlightActivity.a().a(1);
                }
             }
 
-            this.e = (float)com.surpax.a.a.m;
-            this.m = false;
-            this.l = true;
-         } else if(!this.l && this.e < (float)(com.surpax.a.a.m / 2)) {
-            this.p = true;
-            this.l = true;
-            this.m = false;
+            this.mFloat1 = (float)com.surpax.a.a.m;
+            this.mBoolean5 = false;
+            this.mBoolean4 = true;
+         } else if(!this.mBoolean4 && this.mFloat1 < (float)(com.surpax.a.a.m / 2)) {
+            this.mBoolean8 = true;
+            this.mBoolean4 = true;
+            this.mBoolean5 = false;
             com.surpax.a.a.i = 1;
             if(FlashlightActivity.a().g()) {
                var7 = new Message();
                var7.what = 3;
-               this.t.sendMessage(var7);
-               this.j = true;
+               this.mHandler.sendMessage(var7);
+               this.mBoolean2 = true;
             } else {
-               this.q = true;
+               this.mBoolean9 = true;
             }
 
             if(1 == com.surpax.a.a.h) {
                FlashlightActivity.a().a(1);
             }
-         } else if(!this.m && this.e > (float)(com.surpax.a.a.m / 2)) {
-            this.m = true;
-            this.l = false;
-            this.q = false;
-            this.p = false;
+         } else if(!this.mBoolean5 && this.mFloat1 > (float)(com.surpax.a.a.m / 2)) {
+            this.mBoolean5 = true;
+            this.mBoolean4 = false;
+            this.mBoolean9 = false;
+            this.mBoolean8 = false;
             com.surpax.a.a.i = 0;
-            this.k = true;
+            this.mBoolean3 = true;
             if(1 == com.surpax.a.a.h) {
                FlashlightActivity.a().a(1);
             }
 
-            this.j = false;
+            this.mBoolean2 = false;
             this.u = true;
             if(1 == FlashlightActivity.a().b) {
                FlashlightActivity.a().c = true;
@@ -690,8 +690,8 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
    @SuppressLint({"ClickableViewAccessibility"})
    public final boolean onTouchEvent(MotionEvent var1) {
       super.onTouchEvent(var1);
-      if(this.a != null) {
-         this.a.onTouchEvent(var1);
+      if(this.mGestureDetector != null) {
+         this.mGestureDetector.onTouchEvent(var1);
       }
 
       switch(var1.getAction()) {
@@ -700,95 +700,95 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
          FlashlightActivity.a().l();
          return true;
       case 1:
-         if(this.i) {
-            if(this.e > (float)(com.surpax.a.a.m / 2)) {
-               this.e = 0.0F;
-               this.m = true;
-               this.l = false;
-               this.p = false;
-               this.q = false;
-               this.k = true;
+         if(this.mBoolean1) {
+            if(this.mFloat1 > (float)(com.surpax.a.a.m / 2)) {
+               this.mFloat1 = 0.0F;
+               this.mBoolean5 = true;
+               this.mBoolean4 = false;
+               this.mBoolean8 = false;
+               this.mBoolean9 = false;
+               this.mBoolean3 = true;
             } else {
-               this.e = (float)com.surpax.a.a.m;
-               this.m = false;
-               this.l = true;
-               this.p = true;
-               this.q = true;
-               this.k = false;
+               this.mFloat1 = (float)com.surpax.a.a.m;
+               this.mBoolean5 = false;
+               this.mBoolean4 = true;
+               this.mBoolean8 = true;
+               this.mBoolean9 = true;
+               this.mBoolean3 = false;
             }
 
-            (new StringBuilder("lighting state is ")).append(this.q).toString();
-         } else if(this.n) {
-            if(this.f < 0.0F) {
-               this.f = 0.0F;
+            (new StringBuilder("lighting state is ")).append(this.mBoolean9).toString();
+         } else if(this.mBoolean6) {
+            if(this.mFloat2 < 0.0F) {
+               this.mFloat2 = 0.0F;
             }
 
-            if(this.f > (float)(com.surpax.a.a.o * 9)) {
-               this.f = (float)(com.surpax.a.a.o * 9);
+            if(this.mFloat2 > (float)(com.surpax.a.a.o * 9)) {
+               this.mFloat2 = (float)(com.surpax.a.a.o * 9);
             }
 
-            float var2 = (float)(this.g * com.surpax.a.a.o);
-            if(this.f > var2) {
-               if(this.f - var2 >= this.h) {
-                  ++this.g;
+            float var2 = (float)(this.mInt1 * com.surpax.a.a.o);
+            if(this.mFloat2 > var2) {
+               if(this.mFloat2 - var2 >= this.mFloat3) {
+                  ++this.mInt1;
                   if(1 == com.surpax.a.a.h) {
                      FlashlightActivity.a().a(2);
                   }
 
-                  com.surpax.a.a.g = this.g;
+                  com.surpax.a.a.g = this.mInt1;
                }
-            } else if(var2 - this.f >= this.h) {
-               --this.g;
+            } else if(var2 - this.mFloat2 >= this.mFloat3) {
+               --this.mInt1;
                if(1 == com.surpax.a.a.h) {
                   FlashlightActivity.a().a(2);
                }
 
-               com.surpax.a.a.g = this.g;
+               com.surpax.a.a.g = this.mInt1;
             }
 
-            switch(this.g) {
+            switch(this.mInt1) {
             case 0:
-               this.f = 0.0F;
+               this.mFloat2 = 0.0F;
                break;
             case 1:
-               this.f = (float)(com.surpax.a.a.o * 1);
+               this.mFloat2 = (float)(com.surpax.a.a.o * 1);
                break;
             case 2:
-               this.f = (float)(com.surpax.a.a.o * 2);
+               this.mFloat2 = (float)(com.surpax.a.a.o * 2);
                break;
             case 3:
-               this.f = (float)(com.surpax.a.a.o * 3);
+               this.mFloat2 = (float)(com.surpax.a.a.o * 3);
                break;
             case 4:
-               this.f = (float)(com.surpax.a.a.o * 4);
+               this.mFloat2 = (float)(com.surpax.a.a.o * 4);
                break;
             case 5:
-               this.f = (float)(com.surpax.a.a.o * 5);
+               this.mFloat2 = (float)(com.surpax.a.a.o * 5);
                break;
             case 6:
-               this.f = (float)(com.surpax.a.a.o * 6);
+               this.mFloat2 = (float)(com.surpax.a.a.o * 6);
                break;
             case 7:
-               this.f = (float)(com.surpax.a.a.o * 7);
+               this.mFloat2 = (float)(com.surpax.a.a.o * 7);
                break;
             case 8:
-               this.f = (float)(com.surpax.a.a.o * 8);
+               this.mFloat2 = (float)(com.surpax.a.a.o * 8);
                break;
             case 9:
-               this.f = (float)(com.surpax.a.a.o * 9);
+               this.mFloat2 = (float)(com.surpax.a.a.o * 9);
                break;
             default:
-               this.f = (float)(com.surpax.a.a.o * 9);
+               this.mFloat2 = (float)(com.surpax.a.a.o * 9);
             }
 
-            this.o = false;
+            this.mBoolean7 = false;
             this.invalidate();
          }
 
          this.invalidate();
-         this.n = false;
-         this.i = false;
-         this.o = false;
+         this.mBoolean6 = false;
+         this.mBoolean1 = false;
+         this.mBoolean7 = false;
          this.postInvalidate();
          return true;
       default:

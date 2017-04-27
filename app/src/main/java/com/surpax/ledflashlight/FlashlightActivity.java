@@ -21,11 +21,14 @@ import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 
@@ -269,34 +272,34 @@ public class FlashlightActivity extends Activity {
       } else if(1920 == var9.heightPixels && 1080 == var9.widthPixels) {
          com.surpax.a.b var16 = this.r;
          Resources var17 = this.getResources();
-         var16.a = BitmapFactory.decodeResource(var17, 2130837607, var12);
-         Log.d("FlashLightActivity_Test", "background bmps\'s width is:" + var16.a.getWidth() + ", height is:" + var16.a.getHeight());
-         var16.y = BitmapFactory.decodeResource(var17, 2130837613, var12);
+         var16.led_bg = BitmapFactory.decodeResource(var17, 2130837607, var12);
+         Log.d("FlashLightActivity_Test", "background bmps\'s width is:" + var16.led_bg.getWidth() + ", height is:" + var16.led_bg.getHeight());
+         var16.led_indicator = BitmapFactory.decodeResource(var17, 2130837613, var12);
          var16.z = 481.0F;
          var16.A = 1152.0F;
          var16.B = 124;
          var16.C = 124;
-         var16.g = BitmapFactory.decodeResource(var17, 2130837628, var12);
-         var16.h = BitmapFactory.decodeResource(var17, 2130837633, var12);
-         var16.i = BitmapFactory.decodeResource(var17, 2130837638, var12);
-         var16.j = BitmapFactory.decodeResource(var17, 2130837643, var12);
-         var16.k = BitmapFactory.decodeResource(var17, 2130837648, var12);
-         var16.l = BitmapFactory.decodeResource(var17, 2130837653, var12);
-         var16.m = BitmapFactory.decodeResource(var17, 2130837658, var12);
-         var16.n = BitmapFactory.decodeResource(var17, 2130837663, var12);
-         var16.o = BitmapFactory.decodeResource(var17, 2130837668, var12);
-         var16.p = BitmapFactory.decodeResource(var17, 2130837673, var12);
+         var16.num0 = BitmapFactory.decodeResource(var17, 2130837628, var12);
+         var16.num1 = BitmapFactory.decodeResource(var17, 2130837633, var12);
+         var16.num2 = BitmapFactory.decodeResource(var17, 2130837638, var12);
+         var16.num3 = BitmapFactory.decodeResource(var17, 2130837643, var12);
+         var16.num4 = BitmapFactory.decodeResource(var17, 2130837648, var12);
+         var16.num5 = BitmapFactory.decodeResource(var17, 2130837653, var12);
+         var16.num6 = BitmapFactory.decodeResource(var17, 2130837658, var12);
+         var16.num7 = BitmapFactory.decodeResource(var17, 2130837663, var12);
+         var16.num8 = BitmapFactory.decodeResource(var17, 2130837668, var12);
+         var16.num9 = BitmapFactory.decodeResource(var17, 2130837673, var12);
          var16.q = 513.0F;
          var16.r = 557.0F;
          var16.s = 51;
          var16.t = 69;
-         var16.b = BitmapFactory.decodeResource(var17, 2130837682, var12);
+         var16.led_switch = BitmapFactory.decodeResource(var17, 2130837682, var12);
          var16.c = 380.0F;
          var16.d = 1122.0F;
          var16.e = 316;
          var16.f = 495;
-         var16.I = BitmapFactory.decodeResource(var17, 2130837618, var12);
-         var16.D = BitmapFactory.decodeResource(var17, 2130837623, var12);
+         var16.led_knob = BitmapFactory.decodeResource(var17, 2130837618, var12);
+         var16.know_shadow = BitmapFactory.decodeResource(var17, 2130837623, var12);
          var16.J = -2130.0F;
          var16.K = 0.0F;
          var16.L = 1080.0F;
@@ -364,8 +367,8 @@ public class FlashlightActivity extends Activity {
             }
          }
 
-         this.h = (float)var9.heightPixels * 1.0F / (float)this.r.a.getHeight();
-         this.g = (float)var9.widthPixels * 1.0F / (float)this.r.a.getWidth();
+         this.h = (float)var9.heightPixels * 1.0F / (float)this.r.led_bg.getHeight();
+         this.g = (float)var9.widthPixels * 1.0F / (float)this.r.led_bg.getWidth();
       }
 
       com.surpax.a.b var13 = this.r;
@@ -444,36 +447,36 @@ public class FlashlightActivity extends Activity {
 
       this.a("surpax_lighting_frequency", 0);
       com.surpax.a.b var1 = this.r;
-      var1.a.recycle();
-      var1.a = null;
-      var1.y.recycle();
-      var1.y = null;
-      var1.g.recycle();
-      var1.h.recycle();
-      var1.i.recycle();
-      var1.j.recycle();
-      var1.k.recycle();
-      var1.l.recycle();
-      var1.m.recycle();
-      var1.n.recycle();
-      var1.o.recycle();
-      var1.p.recycle();
-      var1.g = null;
-      var1.h = null;
-      var1.i = null;
-      var1.j = null;
-      var1.k = null;
-      var1.l = null;
-      var1.m = null;
-      var1.n = null;
-      var1.o = null;
-      var1.p = null;
-      var1.I.recycle();
-      var1.I = null;
-      var1.D.recycle();
-      var1.D = null;
-      var1.b.recycle();
-      var1.b = null;
+      var1.led_bg.recycle();
+      var1.led_bg = null;
+      var1.led_indicator.recycle();
+      var1.led_indicator = null;
+      var1.num0.recycle();
+      var1.num1.recycle();
+      var1.num2.recycle();
+      var1.num3.recycle();
+      var1.num4.recycle();
+      var1.num5.recycle();
+      var1.num6.recycle();
+      var1.num7.recycle();
+      var1.num8.recycle();
+      var1.num9.recycle();
+      var1.num0 = null;
+      var1.num1 = null;
+      var1.num2 = null;
+      var1.num3 = null;
+      var1.num4 = null;
+      var1.num5 = null;
+      var1.num6 = null;
+      var1.num7 = null;
+      var1.num8 = null;
+      var1.num9 = null;
+      var1.led_knob.recycle();
+      var1.led_knob = null;
+      var1.know_shadow.recycle();
+      var1.know_shadow = null;
+      var1.led_switch.recycle();
+      var1.led_switch = null;
       this.q.a();
       System.gc();
 
@@ -543,7 +546,91 @@ public class FlashlightActivity extends Activity {
 
    @TargetApi(11)
    protected void onResume() {
+      int var1 = this.a("surpax_lighting_frequency");
+      com.surpax.a.a.g = var1;
+      if(var1 == -1) {
+         com.surpax.a.a.g = 0;
+      }
+
+      com.surpax.a.a.j = this.a("surpax_light_state");
+      if(-1 == com.surpax.a.a.j) {
+         com.surpax.a.a.j = 0;
+         com.surpax.a.a.u = true;
+      }
+
+      com.surpax.a.a.i = com.surpax.a.a.j;
+      var1 = this.a("surpax_sound_state");
+      com.surpax.a.a.h = var1;
+      if(var1 == -1) {
+         com.surpax.a.a.h = 1;
+      }
+
+      var1 = this.a("surpax_light_state_exit");
+      com.surpax.a.a.k = var1;
+      if(var1 == -1) {
+         com.surpax.a.a.k = 1;
+      }
+
+      com.surpax.a.a.z = this.a(com.surpax.a.a.A);
+      com.surpax.a.a.r = false;
+      Context var3 = this.getApplicationContext();
+      if(this.v == null) {
+         this.v = new com.surpax.d.a(var3);
+         ((RelativeLayout)this.findViewById(R.id.root_view)).addView(this.v);
+      }
+
+      this.v.a();
       super.onResume();
+      this.v.setVisibility(View.VISIBLE);
+      RelativeLayout var6 = (RelativeLayout)this.findViewById(R.id.surfaceHolder);
+      LayoutParams var4 = new LayoutParams(1, 1);
+      this.f = null;
+      this.f = new SurfaceView(this);
+      var6.removeAllViews();
+      var6.addView(this.f, var4);
+      this.s = new com.surpax.c.a.c();
+      this.s.a();
+      if(com.surpax.a.a.H != 0) {
+         com.surpax.a.a.i = 1;
+         if(com.surpax.a.a.h == 1) {
+            this.a(1);
+         }
+      }
+
+      if(this.m && com.surpax.a.a.l) {
+         com.surpax.a.a.i = 1;
+      }
+
+      Intent var7 = this.getIntent();
+      if(var7 != null) {
+         boolean var2 = var7.getBooleanExtra("intent.extra.led.on", false);
+         if(var2) {
+            com.surpax.a.a.i = 1;
+         }
+
+         (new StringBuilder("open is ")).append(var2).toString();
+         var7.putExtra("intent.extra.led.on", false);
+      }
+
+      this.t = this.s.c();
+      if(this.t) {
+         com.surpax.a.a.i = 0;
+      }
+
+      if(this.t) {
+         this.f.setVisibility(View.INVISIBLE);
+         var6 = (RelativeLayout)this.findViewById(R.id.root_view);
+         var4 = new LayoutParams(-1, -1);
+         var4.addRule(2);
+         View var5 = ((LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.halftrans, (ViewGroup)null);
+         var6.addView(var5, var4);
+         this.u = var5.findViewById(R.id.cover_view);
+         this.u.setVisibility(View.INVISIBLE);
+      }
+
+      if(this.v != null && !this.s.c()) {
+         this.v.g();
+      }
    }
 
    protected void onStart() {
