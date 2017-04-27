@@ -6,25 +6,20 @@ package com.surpax.ledflashlight;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapFactory.Options;
-import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Build.VERSION;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
-import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -36,19 +31,12 @@ import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
-import android.widget.TextView;
 
-import com.ihandysoft.ad.HSAdBannerView;
-import com.ihs.app.framework.activity.HSActivity;
 import com.surpax.d.a;
 import com.tcl.hawk.myflashlight.R;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 
-
-public class FlashlightActivity extends HSActivity {
+public class FlashlightActivity extends Activity {
    private static FlashlightActivity p;
    public boolean a = false;
    public int b = 0;
@@ -58,13 +46,10 @@ public class FlashlightActivity extends HSActivity {
    public SurfaceView f;
    public float g;
    public float h;
-   private TextView i;
-   private ImageButton j;
    private ImageButton k;
    private boolean l = false;
    private boolean m = false;
    private AlertDialog n = null;
-   private HSAdBannerView o;
    private com.surpax.a.c q;
    private com.surpax.a.b r;
    private com.surpax.c.a.c s;
@@ -96,23 +81,6 @@ public class FlashlightActivity extends HSActivity {
       var3.commit();
    }
 
-//    private void b(String var1) {
-//        Builder var2 = new Builder(this);
-//        var2.setMessage(var1).setCancelable(false).setPositiveButton(17039370, new OnClickListener() {
-//            public final void onClick(DialogInterface var1, int var2) {
-//                if(var1 != null) {
-//                    var1.cancel();
-//                }
-//
-//                FlashlightActivity1.a(FlashlightActivity1.this, (AlertDialog)null);
-//            }
-//        });
-//        AlertDialog var3 = var2.create();
-//        var3.setTitle(17039380);
-//        var3.setIcon(17301659);
-//        var3.show();
-//        this.n = var3;
-//    }
 
    public final void a(int var1) {
       if(this.q != null) {
@@ -129,11 +97,6 @@ public class FlashlightActivity extends HSActivity {
          }
 
          this.v.setVisibility(View.VISIBLE);
-         if(this.j != null && this.l) {
-            this.j.setVisibility(View.VISIBLE);
-            this.l = false;
-         }
-
          this.k.setVisibility(View.VISIBLE);
       }
 
@@ -146,26 +109,6 @@ public class FlashlightActivity extends HSActivity {
    public final void c() {
       if(com.surpax.b.a.a().g() && !com.surpax.b.a.c) {
          this.a = true;
-         this.i.setText(com.surpax.b.a.a().f());
-         switch (com.surpax.b.a.a().b()) {
-            case 0:
-               this.j.setImageResource(R.drawable.honey_icon_selector);
-               break;
-            case 1:
-               this.j.setImageResource(R.drawable.honey_icon_selector_1);
-               break;
-            case 2:
-               this.j.setImageResource(R.drawable.honey_icon_animation);
-         }
-
-         Drawable var4 = this.j.getDrawable();
-         LayoutParams var6 = new LayoutParams(var4.getIntrinsicWidth(), var4.getIntrinsicHeight());
-         var6.leftMargin = (int) this.r.N;
-         var6.topMargin = (int) this.r.O - 5;
-         this.j.setLayoutParams(var6);
-         this.j.setVisibility(View.VISIBLE);
-         this.j.bringToFront();
-         this.j.postInvalidate();
       }
    }
 
@@ -199,80 +142,18 @@ public class FlashlightActivity extends HSActivity {
    }
 
    public final void i() {
-      if(this.j != null && this.j.getVisibility() == View.VISIBLE) {
-         this.j.setVisibility(View.INVISIBLE);
-         this.l = true;
-      }
 
    }
 
-   public final View j() {
-      return this.findViewById(R.id.root_view);
-   }
-
-   public final boolean k() {
-      boolean var1;
-      if(this.t) {
-         var1 = false;
-      } else if("samsung".equalsIgnoreCase(Build.MANUFACTURER) && "SPH-M820-BST".equals(Build.MODEL)) {
-         var1 = false;
-      } else if("samsung".equalsIgnoreCase(Build.MANUFACTURER) && "SGH-T679".equals(Build.MODEL)) {
-         var1 = false;
-      } else if("samsung".equalsIgnoreCase(Build.MANUFACTURER) && "SPH-D710".equals(Build.MODEL)) {
-         var1 = false;
-      } else if("ZTE".equalsIgnoreCase(Build.MANUFACTURER) && "N860".equals(Build.MODEL)) {
-         var1 = false;
-      } else if("ZTE".equalsIgnoreCase(Build.MANUFACTURER) && "ZTE-SKATE".equals(Build.MODEL)) {
-         var1 = false;
-      } else if("LGE".equalsIgnoreCase(Build.MANUFACTURER) && "LG-LS855".equals(Build.MODEL)) {
-         var1 = false;
-      } else if("Motorola".equalsIgnoreCase(Build.MANUFACTURER) && "A854".equals(Build.MODEL)) {
-         var1 = false;
-      } else {
-         var1 = true;
-      }
-
-      return var1 && this.c;
-   }
 
    public final void l() {
       try {
-         if(this.i.getVisibility() == View.VISIBLE) {
-            this.i.setVisibility(View.INVISIBLE);
-         }
 
       } catch (Exception var2) {
          var2.printStackTrace();
       }
    }
 
-   public final void m() {
-      int var1 = 0;
-      byte var2;
-      if(TextUtils.isEmpty(com.surpax.b.a.a)) {
-         var2 = 3;
-      } else {
-         var2 = 4;
-      }
-
-      com.surpax.b.a.c = false;
-      List var3 = this.getPackageManager().getInstalledApplications(PackageManager.MATCH_UNINSTALLED_PACKAGES);
-      Iterator var4 = var3.iterator();
-
-      while(var4.hasNext()) {
-         ApplicationInfo var5 = (ApplicationInfo)var4.next();
-         if(!TextUtils.isEmpty(com.surpax.b.a.a) && com.surpax.b.a.a.equalsIgnoreCase(var5.packageName)) {
-            com.surpax.b.a.c = true;
-            ++var1;
-         }
-
-         if(var1 >= var2) {
-            break;
-         }
-      }
-
-      var3.clear();
-   }
 
    public void onConfigurationChanged(Configuration var1) {
       super.onConfigurationChanged(var1);
@@ -436,27 +317,6 @@ public class FlashlightActivity extends HSActivity {
       var13.v = (float)(var7 - (int)((float)(var9.densityDpi * 370 / 480) * 1.0F) - 15);
       var13.N = (float)var6 - var13.u - (float)var8;
       var13.O = var13.v;
-      this.i = (TextView)this.findViewById(R.id.honeycomb_info);
-      this.i.setVisibility(View.INVISIBLE);
-      this.j = (ImageButton)this.findViewById(R.id.bt_honeycomb);
-      this.j.setVisibility(View.INVISIBLE);
-      this.j.setSoundEffectsEnabled(false);
-      this.j.setOnClickListener(new android.view.View.OnClickListener() {
-         @SuppressLint({"NewApi"})
-         public final void onClick(View var1) {
-            com.ihs.app.a.b.a("HC_Icon_Clicked");
-            FlashlightActivity.this.i.setVisibility(View.INVISIBLE);
-            Drawable var2 = FlashlightActivity.this.j.getDrawable();
-            if(var2 instanceof AnimationDrawable) {
-               ((AnimationDrawable)var2).stop();
-               ((AnimationDrawable)var2).selectDrawable(0);
-            }
-
-            HoneyCombActivity.a = 0;
-            Intent var3 = new Intent(FlashlightActivity.this, HoneyCombInnerActivity.class);
-            FlashlightActivity.this.startActivity(var3);
-         }
-      });
       this.k = (ImageButton)this.findViewById(R.id.bt_sound);
       if(com.surpax.a.a.h == 1) {
          this.k.setBackgroundResource(R.drawable.sound_icon_enable_selector);
@@ -492,11 +352,7 @@ public class FlashlightActivity extends HSActivity {
 
    protected void onDestroy() {
       super.onDestroy();
-      if(this.o != null) {
-         this.o.e();
-      }
 
-      this.o = null;
       this.d = true;
       this.v.setVisibility(View.INVISIBLE);
       this.v.f();
@@ -705,30 +561,29 @@ public class FlashlightActivity extends HSActivity {
          this.v.g();
       }
 
-      this.o.a();
    }
 
    protected void onStart() {
       super.onStart();
       this.w = ((PowerManager)this.getSystemService(Context.POWER_SERVICE)).newWakeLock(268435457, this.getClass().getCanonicalName());
       this.w.acquire();
-      Map var1 = com.ihs.a.b.b.d();
-      com.surpax.b.a.a().a(var1);
-      //TODO
-      (new Thread() {
-         public final void run() {
-            FlashlightActivity.p.m();
-            if(com.ihs.app.framework.a2.b.a().d() != null) {
-               com.ihs.app.framework.a2.b.a().d().runOnUiThread(new Runnable() {
-                  public final void run() {
-                     FlashlightActivity.p.c();
-                  }
-               });
-            }
-
-            super.run();
-         }
-      }).start();
+//      Map var1 = com.ihs.a.b.b.d();
+//      com.surpax.b.a.a().a(var1);
+//      //TODO
+//      (new Thread() {
+//         public final void run() {
+//            FlashlightActivity.p.m();
+//            if(com.ihs.app.framework.a2.b.a().d() != null) {
+//               com.ihs.app.framework.a2.b.a().d().runOnUiThread(new Runnable() {
+//                  public final void run() {
+//                     FlashlightActivity.p.c();
+//                  }
+//               });
+//            }
+//
+//            super.run();
+//         }
+//      }).start();
 
    }
 

@@ -2,6 +2,11 @@ package com.surpax.ledflashlight;
 
 import android.content.Context;
 import android.content.SharedPreferences.Editor;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,9 +14,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public final class c {
    // $FF: synthetic method
@@ -26,6 +28,7 @@ public final class c {
 
    public static Map a(Map param0, String param1) {
       // $FF: Couldn't be decompiled
+      return null;
    }
 
    public static void a(Context var0, String var1, List var2) {

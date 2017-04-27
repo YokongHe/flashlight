@@ -33,7 +33,6 @@ public final class b extends com.surpax.c.a.a {
 
    final void c() {
       try {
-         FlashlightActivity.a().j().setBackgroundColor(-1);
          LayoutParams var1 = FlashlightActivity.a().getWindow().getAttributes();
          var1.screenBrightness = 1.0F;
          FlashlightActivity.a().getWindow().setAttributes(var1);
@@ -44,7 +43,6 @@ public final class b extends com.surpax.c.a.a {
 
    final void d() {
       try {
-         FlashlightActivity.a().j().setBackgroundColor(-16777216);
       } catch (Exception var2) {
          var2.printStackTrace();
       }

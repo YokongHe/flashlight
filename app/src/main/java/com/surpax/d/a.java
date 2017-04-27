@@ -173,7 +173,7 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
       var3.addAnimation(var2);
       var3.setAnimationListener(new AnimationListener() {
          public final void onAnimationEnd(Animation var1x) {
-            FlashlightActivity.a().h().setVisibility(4);
+            FlashlightActivity.a().h().setVisibility(View.INVISIBLE);
             Message var2 = new Message();
             if(var1) {
                var2.what = 0;
@@ -193,7 +193,7 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
             var0.postInvalidate();
          }
       });
-      FlashlightActivity.a().h().setVisibility(0);
+      FlashlightActivity.a().h().setVisibility(View.VISIBLE);
       FlashlightActivity.a().h().startAnimation(var3);
    }
 
@@ -666,7 +666,6 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
             this.u = true;
             if(1 == FlashlightActivity.a().b) {
                FlashlightActivity.a().c = true;
-               com.ihs.app.alerts.impl.b.a().c();
             }
          }
 
@@ -698,7 +697,6 @@ public final class a extends View implements OnDoubleTapListener, OnGestureListe
       switch(var1.getAction()) {
       case 0:
          com.surpax.b.a.b = true;
-         FlashlightActivity.a().l();
          return true;
       case 1:
          if(this.i) {

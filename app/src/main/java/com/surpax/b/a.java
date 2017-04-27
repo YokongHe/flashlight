@@ -83,10 +83,6 @@ public final class a {
             int var1 = (new Random()).nextInt(100);
             int var2 = ((Integer)this.g.get("Probability")).intValue();
             int var3 = ((Integer)this.g.get("UseCount")).intValue();
-            int var4 = com.ihs.app.framework.a.b.a().h();
-            if(var1 <= var2 && var3 <= var4) {
-               return true;
-            }
          }
 
          return false;
