@@ -61,7 +61,7 @@ public final class b extends com.surpax.c.a.a {
    }
 
    final void e() {
-      closeFlash();
+//      closeFlash();
       releaseFlash();
 //      Log.e("yokong", "com.suipax.c.a.b.e(): ");
 //      try {
